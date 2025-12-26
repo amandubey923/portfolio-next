@@ -3,7 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { useState } from "react";
+import {
+  Github,
+  Linkedin,
+  Instagram,
+  Mail,
+  Menu,
+  X,
+} from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -17,12 +25,13 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-      {/* RIGHT FIXED SOCIAL ICONS */}
+      {/* RIGHT FIXED SOCIAL ICONS (DESKTOP ONLY) */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-5">
-        {[ 
+        {[
           { href: "https://github.com/amandubey923", icon: Github },
           { href: "https://www.linkedin.com/in/aman-kr-dubey", icon: Linkedin },
           { href: "https://www.instagram.com/", icon: Instagram },
@@ -50,28 +59,23 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border bg-background/70">
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           {/* LOGO */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 transition hover:opacity-90"
-          >
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/aman.png"
               alt="Aman Dubey"
               width={36}
               height={36}
               priority
-              className="transition-transform duration-300 hover:scale-105"
             />
             <span className="text-lg font-semibold tracking-wide">
               Aman Dubey
             </span>
           </Link>
 
-          {/* NAV LINKS */}
+          {/* DESKTOP LINKS */}
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-
               return (
                 <Link
                   key={link.name}
@@ -82,30 +86,62 @@ export default function Navbar() {
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <span className="relative z-10">{link.name}</span>
-
-                  {/* underline animation */}
-                  <span
-                    className={`absolute left-0 -bottom-1 h-[2px] w-full bg-primary transition-all duration-300 ${
-                      isActive
-                        ? "opacity-100 scale-x-100"
-                        : "opacity-0 scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  />
+                  {link.name}
                 </Link>
               );
             })}
           </div>
 
-          {/* HIRE ME */}
+          {/* DESKTOP CTA */}
           <Link
             href="/resume/resume.pdf"
             target="_blank"
-            className="ml-4 inline-flex items-center rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-primary/30 hover:scale-[1.03]"
+            className="hidden md:inline-flex rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
           >
             Hire Me
           </Link>
+
+          {/* MOBILE TOGGLE */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-foreground"
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
         </nav>
+
+        {/* MOBILE MENU */}
+        {open && (
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
+            <div className="flex flex-col px-6 py-6 gap-6">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`text-base transition ${
+                      isActive
+                        ? "text-primary font-semibold"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+
+              <Link
+                href="/resume/resume.pdf"
+                target="_blank"
+                className="mt-4 inline-flex justify-center rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
+              >
+                Hire Me
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
