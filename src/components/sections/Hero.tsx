@@ -9,9 +9,13 @@ export default function Hero() {
       <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-24 items-center w-full">
+      {/* MAIN GRID */}
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-24 items-center w-full px-6 md:px-12 lg:px-20">
         {/* ================= LEFT CONTENT ================= */}
-        <div className="space-y-8">
+        <div className="space-y-8 relative">
+          {/* Accent line */}
+          <div className="absolute -left-6 top-2 h-16 w-[2px] bg-primary/40 hidden lg:block" />
+
           <span className="text-sm tracking-widest text-primary uppercase">
             Hello, I’m
           </span>
@@ -52,6 +56,9 @@ export default function Hero() {
 
         {/* ================= RIGHT IMAGE ================= */}
         <div className="relative flex justify-center">
+          {/* Image Glow Ring */}
+          <div className="absolute inset-0 rounded-full bg-primary/10 blur-[140px]" />
+
           {/* Image Frame */}
           <div className="relative w-95 h-120 rounded-2xl overflow-hidden border border-border bg-card/30 backdrop-blur-md shadow-[0_0_120px_var(--cyber-glow-primary)]">
             <Image
@@ -67,14 +74,6 @@ export default function Hero() {
           <div className="absolute -top-4 -left-4 w-12 h-12 border-t border-l border-primary/60" />
           <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b border-r border-primary/60" />
         </div>
-      </div>
-
-      {/* ================= SCROLL INDICATOR ================= */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70">
-        <span className="text-xs tracking-[0.3em] text-muted-foreground">
-          SCROLL
-        </span>
-        <div className="h-12 w-[2px] bg-primary/60 animate-pulse rounded-full" />
       </div>
     </section>
   );
