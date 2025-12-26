@@ -1,0 +1,81 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+export default function Hero() {
+  return (
+    <section className="relative z-10 min-h-[calc(100vh-80px)] flex items-center">
+      {/* Ambient Glow */}
+      <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-24 items-center w-full">
+        {/* ================= LEFT CONTENT ================= */}
+        <div className="space-y-8">
+          <span className="text-sm tracking-widest text-primary uppercase">
+            Hello, I’m
+          </span>
+
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            Aman{" "}
+            <span className="text-primary relative">
+              Dubey
+              <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-primary/60" />
+            </span>
+          </h1>
+
+          <p className="max-w-xl text-muted-foreground text-lg leading-relaxed">
+            A passionate Full-Stack Developer focused on building clean,
+            scalable, and high-performance web applications with modern
+            technologies.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex items-center gap-6 pt-4">
+            <Link
+              href="/projects"
+              className="group inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/30 transition hover:scale-[1.03]"
+            >
+              View Projects
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </Link>
+
+            <Link
+              href="/resume/resume.pdf"
+              target="_blank"
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
+            >
+              Download Resume
+            </Link>
+          </div>
+        </div>
+
+        {/* ================= RIGHT IMAGE ================= */}
+        <div className="relative flex justify-center">
+          {/* Image Frame */}
+          <div className="relative w-95 h-120 rounded-2xl overflow-hidden border border-border bg-card/30 backdrop-blur-md shadow-[0_0_120px_var(--cyber-glow-primary)]">
+            <Image
+              src="/hero/hero1.png"
+              alt="Aman Dubey"
+              fill
+              priority
+              className="object-cover object-top"
+            />
+          </div>
+
+          {/* Decorative Corner Lines */}
+          <div className="absolute -top-4 -left-4 w-12 h-12 border-t border-l border-primary/60" />
+          <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b border-r border-primary/60" />
+        </div>
+      </div>
+
+      {/* ================= SCROLL INDICATOR ================= */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70">
+        <span className="text-xs tracking-[0.3em] text-muted-foreground">
+          SCROLL
+        </span>
+        <div className="h-12 w-[2px] bg-primary/60 animate-pulse rounded-full" />
+      </div>
+    </section>
+  );
+}
