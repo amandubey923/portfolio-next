@@ -94,7 +94,7 @@ export default function Navbar() {
 
           {/* DESKTOP CTA */}
           <Link
-            href="/resume/resume.pdf"
+            href="/resume/Resume1.pdf"
             target="_blank"
             className="hidden md:inline-flex rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
           >
@@ -133,7 +133,7 @@ export default function Navbar() {
               })}
 
               <Link
-                href="/resume/resume.pdf"
+                href="/resume/Resume1.pdf"
                 target="_blank"
                 className="mt-4 inline-flex justify-center rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:opacity-90 transition"
               >

@@ -45,7 +45,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/resume/resume.pdf"
+              href="/resume/Resume1.pdf"
               target="_blank"
               className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
             >

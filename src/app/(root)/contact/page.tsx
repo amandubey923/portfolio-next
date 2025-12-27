@@ -107,7 +107,7 @@ export default function ContactPage() {
           </p>
 
           <Link
-            href="/resume/resume.pdf"
+            href="/resume/Resume1.pdf"
             target="_blank"
             className="relative z-10 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 hover:scale-[1.03] shadow-lg shadow-primary/30"
           >
