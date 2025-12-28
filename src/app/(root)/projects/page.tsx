@@ -67,7 +67,7 @@ export default function ProjectsPage() {
 
         {/* PROJECT 5 – SPECIAL */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
-          <div className="relative h-[240px] w-full overflow-hidden">
+          <div className="relative h-60 w-full overflow-hidden">
             <Image
               src="/projects/project5.png"
               alt="Book Suggestion App"
@@ -122,7 +122,7 @@ transition-all duration-300 ease-out"
 
         {/* PROJECT 6 */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden opacity-80">
-          <div className="relative h-[240px] w-full overflow-hidden">
+          <div className="relative h-60 w-full overflow-hidden">
             <Image
               src="/projects/project6.png"
               alt="Future Project"
@@ -156,7 +156,7 @@ function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
-      <div className="relative h-[240px] w-full overflow-hidden">
+      <div className="relative h-60 w-full overflow-hidden">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
 
