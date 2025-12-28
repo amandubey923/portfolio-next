@@ -1,6 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Github, Images } from "lucide-react";
 
+/* ================= TYPES ================= */
+interface ProjectCardProps {
+  image: string;
+  title: string;
+  desc: string;
+  live: string;
+  github: string;
+}
+
+/* ================= PAGE ================= */
 export default function ProjectsPage() {
   return (
     <section className="relative z-10 max-w-7xl mx-auto py-32 px-6">
@@ -11,153 +22,55 @@ export default function ProjectsPage() {
         </h2>
         <p className="mt-6 max-w-2xl text-muted-foreground">
           A curated selection of projects showcasing my ability to design,
-          develop, and deploy scalable, real-world applications using modern
-          web technologies.
+          develop, and deploy scalable, real-world applications using modern web
+          technologies.
         </p>
       </div>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* PROJECT 1 */}
-        <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
-          {/* Image */}
-          <div className="relative h-[240px] w-full overflow-hidden">
-            <Image
-              src="/projects/project1.png"
-              alt="AI Fitness Platform"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="p-8 space-y-4">
-            <h3 className="text-2xl font-semibold">
-              AI Fitness Platform
-            </h3>
-
-            <p className="text-muted-foreground leading-relaxed">
-              An AI-powered fitness web application that generates personalized
-              workout and diet plans based on user input. The platform focuses
-              on intelligent recommendations, clean UI, and performance-driven
-              architecture to deliver a seamless fitness experience.
-            </p>
-
-            <Link
-              href="https://ai-fitness-aman.netlify.app/"
-              target="_blank"
-              className="inline-block text-primary font-medium hover:underline"
-            >
-              View Live Project →
-            </Link>
-          </div>
-        </div>
+        <ProjectCard
+          image="/projects/project1.png"
+          title="AI Fitness Platform"
+          desc="An AI-powered fitness web application that generates personalized workout and diet plans."
+          live="https://ai-fitness-aman.netlify.app/"
+          github="https://github.com/amandubey923/ai-fitness"
+        />
 
         {/* PROJECT 2 */}
-        <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
-          <div className="relative h-[240px] w-full overflow-hidden">
-            <Image
-              src="/projects/project2.png"
-              alt="Video Calling Interview Platform"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div className="p-8 space-y-4">
-            <h3 className="text-2xl font-semibold">
-              Video Calling Interview Platform
-            </h3>
-
-            <p className="text-muted-foreground leading-relaxed">
-              A real-time video calling platform built for conducting technical
-              interviews. It supports live video rooms, authentication, and
-              smooth peer-to-peer communication with a strong focus on
-              reliability and user experience.
-            </p>
-
-            <Link
-              href="https://video-calling-interview-plattform.netlify.app/"
-              target="_blank"
-              className="inline-block text-primary font-medium hover:underline"
-            >
-              View Live Project →
-            </Link>
-          </div>
-        </div>
+        <ProjectCard
+          image="/projects/project2.png"
+          title="Video Calling Interview Platform"
+          desc="A real-time video calling platform built for conducting technical interviews. Used by interviewer and candidate."
+          live="https://video-calling-interview-plattform.netlify.app/"
+          github="https://github.com/amandubey923/Interview-video-calling-platform"
+        />
 
         {/* PROJECT 3 */}
-        <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
-          <div className="relative h-[240px] w-full overflow-hidden">
-            <Image
-              src="/projects/project3.png"
-              alt="Library Book Website"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div className="p-8 space-y-4">
-            <h3 className="text-2xl font-semibold">
-              Library Book Website
-            </h3>
-
-            <p className="text-muted-foreground leading-relaxed">
-              A responsive library platform that allows users to explore and
-              read world-famous books. The project emphasizes clean UI,
-              structured content presentation, and smooth navigation for an
-              engaging reading experience.
-            </p>
-
-            <Link
-              href="https://library-book1.netlify.app/index.html"
-              target="_blank"
-              className="inline-block text-primary font-medium hover:underline"
-            >
-              View Live Project →
-            </Link>
-          </div>
-        </div>
+        <ProjectCard
+          image="/projects/project3.png"
+          title="Library Book Website"
+          desc="A responsive library platform that allows users to explore and read world-famous books."
+          live="https://library-book1.netlify.app/index.html"
+          github="https://github.com/amandubey923/LIBRARY-BOOK"
+        />
 
         {/* PROJECT 4 */}
+        <ProjectCard
+          image="/projects/project4.png"
+          title="Text Utility Application"
+          desc="A productivity-focused text utility web app built with React. People can use for transforming large paragraph."
+          live="https://ephemeral-melomakarona-52889a.netlify.app/"
+          github="https://github.com/amandubey923/textUtils"
+        />
+
+        {/* PROJECT 5 – SPECIAL */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
-          <div className="relative h-[240px] w-full overflow-hidden">
-            <Image
-              src="/projects/project4.png"
-              alt="Text Utility App"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div className="p-8 space-y-4">
-            <h3 className="text-2xl font-semibold">
-              Text Utility Application
-            </h3>
-
-            <p className="text-muted-foreground leading-relaxed">
-              A productivity-focused text utility web app built with React. It
-              provides features like text transformation, word and character
-              counting, and formatting tools designed to improve daily writing
-              efficiency.
-            </p>
-
-            <Link
-              href="https://ephemeral-melomakarona-52889a.netlify.app/"
-              target="_blank"
-              className="inline-block text-primary font-medium hover:underline"
-            >
-              View Live Project →
-            </Link>
-          </div>
-        </div>
-
-        {/* PROJECT 5 (DEMO) */}
-        <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden opacity-80">
           <div className="relative h-[240px] w-full overflow-hidden">
             <Image
               src="/projects/project5.png"
-              alt="Upcoming Project"
+              alt="Book Suggestion App"
               fill
               className="object-cover"
             />
@@ -165,22 +78,49 @@ export default function ProjectsPage() {
 
           <div className="p-8 space-y-4">
             <h3 className="text-2xl font-semibold">
-              Upcoming Project
+              Book Suggestion App
             </h3>
 
             <p className="text-muted-foreground leading-relaxed">
-              A new project currently under development. This section will be
-              updated soon with detailed information, features, and live demo
-              once the project is completed.
+              A full-stack book reccomendation app where you can upload image of book and give rating with your view.
             </p>
 
-            <span className="text-muted-foreground italic">
-              Coming Soon
-            </span>
+            {/* ACTIONS */}
+            <div className="flex items-center justify-between pt-2">
+              {/* IMAGE PREVIEW */}
+              <Link
+                href="/project5/projectimg5.jpg"
+                target="_blank"
+                className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+              >
+                <Images size={18} />
+                Project Images →
+              </Link>
+
+              {/* GITHUB */}
+              <Link
+                href="https://github.com/amandubey923/book-store-app"
+                target="_blank"
+                className="relative flex items-center gap-2 rounded-full
+bg-primary/20
+px-4 py-2
+text-primary font-semibold
+shadow-[0_0_25px_var(--cyber-glow-primary),0_0_60px_rgba(0,255,255,0.25)]
+ring-1 ring-primary/40
+backdrop-blur-md
+hover:scale-110
+hover:shadow-[0_0_40px_var(--cyber-glow-primary),0_0_90px_rgba(0,255,255,0.45)]
+hover:ring-primary/70
+transition-all duration-300 ease-out"
+              >
+                <Github size={18} />
+                GitHub
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* PROJECT 6 (DEMO) */}
+        {/* PROJECT 6 */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden opacity-80">
           <div className="relative h-[240px] w-full overflow-hidden">
             <Image
@@ -192,16 +132,10 @@ export default function ProjectsPage() {
           </div>
 
           <div className="p-8 space-y-4">
-            <h3 className="text-2xl font-semibold">
-              Future Project
-            </h3>
-
+            <h3 className="text-2xl font-semibold">Future Project</h3>
             <p className="text-muted-foreground leading-relaxed">
-              An upcoming idea planned for future implementation. This space is
-              reserved for showcasing another impactful project once it goes
-              live.
+              An upcoming idea planned for future implementation.
             </p>
-
             <span className="text-muted-foreground italic">
               Coming Soon
             </span>
@@ -209,5 +143,56 @@ export default function ProjectsPage() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ================= REUSABLE CARD ================= */
+function ProjectCard({
+  image,
+  title,
+  desc,
+  live,
+  github,
+}: ProjectCardProps) {
+  return (
+    <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
+      <div className="relative h-[240px] w-full overflow-hidden">
+        <Image src={image} alt={title} fill className="object-cover" />
+      </div>
+
+      <div className="p-8 space-y-4">
+        <h3 className="text-2xl font-semibold">{title}</h3>
+        <p className="text-muted-foreground leading-relaxed">{desc}</p>
+
+        <div className="flex items-center justify-between">
+          <Link
+            href={live}
+            target="_blank"
+            className="text-primary font-medium hover:underline"
+          >
+            View Live Project →
+          </Link>
+
+          <Link
+            href={github}
+            target="_blank"
+            className="relative flex items-center gap-2 rounded-full
+bg-primary/20
+px-4 py-2
+text-primary font-semibold
+shadow-[0_0_25px_var(--cyber-glow-primary),0_0_60px_rgba(0,255,255,0.25)]
+ring-1 ring-primary/40
+backdrop-blur-md
+hover:scale-110
+hover:shadow-[0_0_40px_var(--cyber-glow-primary),0_0_90px_rgba(0,255,255,0.45)]
+hover:ring-primary/70
+transition-all duration-300 ease-out"
+          >
+            <Github size={18} />
+            GitHub
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
