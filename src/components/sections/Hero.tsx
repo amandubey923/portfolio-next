@@ -62,7 +62,7 @@ export default function Hero() {
           {/* Image Frame */}
           <div className="relative w-95 h-120 rounded-2xl overflow-hidden border border-border bg-card/30 backdrop-blur-md shadow-[0_0_120px_var(--cyber-glow-primary)]">
             <Image
-              src="/hero/hero1.png"
+              src="/hero/hero2.png"
               alt="Aman Dubey"
               fill
               priority

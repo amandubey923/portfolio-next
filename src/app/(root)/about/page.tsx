@@ -2,187 +2,127 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <section className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-40">
-      {/* ===================== HERO ROW ===================== */}
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
-        {/* LEFT CONTENT */}
-        <div className="space-y-8">
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+    <section className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16">
+      {/* subtle glow background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.12),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.12),transparent_45%)]" />
+
+      {/* ================= HERO ================= */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+        {/* LEFT */}
+        <div className="space-y-6">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
             About{" "}
-            <span className="text-primary underline underline-offset-8">
+            <span className="text-primary drop-shadow-[0_0_12px_rgba(56,189,248,0.6)]">
               Me
             </span>
           </h1>
 
-          <p className="max-w-xl text-lg text-muted-foreground leading-relaxed">
-            More than just a{" "}
-            <span className="font-semibold text-foreground">developer</span> —  
-            a thinker, builder, and lifelong learner driven by{" "}
-            <span className="font-semibold text-foreground">discipline</span>,{" "}
-            <span className="font-semibold text-foreground">philosophy</span>,
-            and a deep curiosity about how systems, people, and the world truly
-            work.
-          </p>
-
-          <p className="text-muted-foreground leading-relaxed">
-            I believe clarity in thinking creates clarity in execution. I do not
-            chase shortcuts — I build foundations.
+          <p className="max-w-xl text-base text-muted-foreground leading-relaxed">
+            I’m a disciplined software engineer focused on building scalable,
+            thoughtful systems with clarity, structure, and long-term impact.
+            I emphasize strong fundamentals, thoughtful design, and writing
+            code that remains reliable and maintainable over time.
           </p>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="relative flex justify-center">
-          <div className="relative w-[360px] h-[440px] rounded-2xl overflow-hidden border border-border bg-card/30 backdrop-blur-md shadow-[0_0_80px_var(--cyber-glow-primary)]">
+        {/* RIGHT */}
+        <div className="flex justify-center">
+          <div className="relative w-[280px] h-[350px] rounded-xl overflow-hidden border border-border bg-card shadow-[0_0_40px_rgba(56,189,248,0.25)]">
             <Image
-              src="/aman/image.png" // dummy image
+              src="/aman/image.png"
               alt="Aman Kumar"
               fill
               priority
               className="object-cover object-top"
             />
+            {/* glow ring */}
+            <div className="absolute inset-0 rounded-xl ring-1 ring-primary/30" />
           </div>
         </div>
-
-        {/* SCROLL INDICATOR */}
-        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-80 animate-bounce">
-          <span className="text-xs tracking-widest text-muted-foreground">
-            SCROLL
-          </span>
-          <div className="h-10 w-[2px] bg-primary/60 rounded-full" />
-        </div>
       </div>
 
-      {/* ===================== WHO I AM + PERSPECTIVE ===================== */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
-        <div className="space-y-6">
-          <h2 className="text-3xl font-semibold underline underline-offset-6">
-            Who I Am
+      {/* ================= PROFILE ================= */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20">
+        <div className="space-y-4">
+          <h2 className="text-xl
+font-bold
+tracking-tight
+text-primary
+drop-shadow-[0_0_12px_rgba(56,189,248,0.8)]
+animate-pulse">
+            Profile
           </h2>
 
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             My name is{" "}
-            <span className="font-semibold text-foreground">Aman Kumar</span>, a
-            disciplined and goal-driven Information Technology undergraduate at
-            Chandigarh Group of Colleges, Landran.
+            <span className="text-foreground font-medium">Aman Kumar</span>, an
+            Information Technology undergraduate with a strong focus on
+            real-world problem solving and system-level thinking.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
-            I approach technology not merely as a tool, but as a{" "}
-            <span className="font-semibold text-foreground">
-              system for solving real-world problems
-            </span>{" "}
-            with clarity, logic, and long-term impact.
-          </p>
-
-          <p className="text-muted-foreground leading-relaxed">
-            I value structure over chaos, fundamentals over shortcuts, and{" "}
-            <span className="font-semibold text-foreground">
-              consistency over motivation
-            </span>.
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            I prefer discipline, patience, and long-term quality over shortcuts.
           </p>
         </div>
 
-        <div className="space-y-6">
-          <h2 className="text-3xl font-semibold underline underline-offset-6">
-            My Perspective
+        <div className="space-y-4">
+          <h2 className="text-xl
+font-bold
+tracking-tight
+text-primary
+drop-shadow-[0_0_12px_rgba(56,189,248,0.8)]
+animate-pulse">
+            Approach
           </h2>
 
-          <p className="text-muted-foreground leading-relaxed">
-            I see the world as an{" "}
-            <span className="font-semibold text-foreground">
-              interconnected system
-            </span>{" "}
-            — where technology, psychology, philosophy, and human behavior
-            overlap.
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            I view technology as part of a larger ecosystem involving human
+            behavior, psychology, and design.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
-            This mindset allows me to build solutions that are not only
-            technically correct, but also{" "}
-            <span className="font-semibold text-foreground">
-              intuitive, human-centric, and scalable
-            </span>.
-          </p>
-
-          <p className="text-muted-foreground leading-relaxed">
-            I am deeply interested in stoicism, self-mastery, discipline, and the
-            idea of continuous self-improvement.
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            This helps me build products that are intuitive, scalable, and easy
+            to maintain.
           </p>
         </div>
       </div>
 
-      {/* ===================== HIGHLIGHT CARDS ===================== */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-36">
+      {/* ================= FOCUS AREAS ================= */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           {
             title: "Mindset",
-            text:
-              "I operate with a long-term, growth-oriented mindset. I focus on daily improvement, deep work, and becoming resilient under pressure.",
+            text: "Long-term thinking, consistency, and resilience under pressure.",
           },
           {
             title: "Interests",
-            text:
-              "Philosophy, fitness, analytical thinking, and observing how systems — both technical and human — behave under constraints.",
+            text: "Software architecture, philosophy, fitness, and systems thinking.",
           },
           {
-            title: "Learning",
-            text:
-              "Alongside software engineering, I am currently learning the German language to expand global exposure and structured thinking.",
+            title: "Growth",
+            text: "Learning German to improve structure and global exposure.",
           },
         ].map((item, i) => (
           <div
             key={i}
-            className="group relative rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]"
+            className="group relative rounded-lg border border-border bg-card/60 p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_0_35px_rgba(56,189,248,0.35)]"
           >
-            <h3 className="text-2xl font-semibold mb-4 underline underline-offset-4">
+            <h3 className="text-xl
+font-bold
+tracking-tight
+text-primary
+drop-shadow-[0_0_12px_rgba(56,189,248,0.8)]
+animate-pulse">
               {item.title}
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-xs text-muted-foreground leading-relaxed">
               {item.text}
             </p>
+
+            {/* hover glow */}
+            <div className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity ring-1 ring-primary/40" />
           </div>
         ))}
-      </div>
-
-      {/* ===================== LEARNING & DISCIPLINE ===================== */}
-      <div className="max-w-4xl space-y-6 mb-28">
-        <h2 className="text-3xl font-semibold underline underline-offset-6">
-          Discipline & Growth
-        </h2>
-
-        <p className="text-muted-foreground leading-relaxed">
-          My journey is built on discipline, not motivation. I believe real
-          growth happens when effort continues even when excitement fades.
-        </p>
-
-        <p className="text-muted-foreground leading-relaxed">
-          I consistently sharpen my problem-solving skills, improve my
-          communication, and refine my understanding of system design and
-          architecture.
-        </p>
-
-        <p className="text-muted-foreground leading-relaxed">
-          Learning German has strengthened my patience, structure, and
-          consistency — qualities that directly translate into my engineering
-          mindset.
-        </p>
-      </div>
-
-      {/* ===================== CLOSING ===================== */}
-      <div className="max-w-4xl">
-        <h2 className="text-3xl font-semibold underline underline-offset-6 mb-6">
-          Looking Ahead
-        </h2>
-
-        <p className="text-muted-foreground leading-relaxed mb-4">
-          My goal is to build impactful products, grow as an engineer, and
-          contribute to systems that genuinely matter.
-        </p>
-
-        <p className="text-muted-foreground leading-relaxed">
-          I am not chasing quick success — I am building mastery, depth, and a
-          career aligned with clarity of thought and strength of character.
-        </p>
       </div>
     </section>
   );
