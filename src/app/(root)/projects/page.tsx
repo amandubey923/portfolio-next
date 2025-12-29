@@ -29,6 +29,15 @@ export default function ProjectsPage() {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+          <ProjectCard
+          image="/projects/project7.png"
+          title="Dentiva AI Dental-Health "
+          desc="An AI-powered dental assistant web application that enables seamless doctor booking, appointment, and AI voice chat."
+          live="https://dentiva-ai-aman.netlify.app/"
+          github="https://github.com/amandubey923/dentiva-ai"
+        />
+
         {/* PROJECT 1 */}
         <ProjectCard
           image="/projects/project1.png"
