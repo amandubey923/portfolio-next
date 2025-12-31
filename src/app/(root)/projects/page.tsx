@@ -29,34 +29,44 @@ export default function ProjectsPage() {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-
-          <ProjectCard
+        
+        {/* PROJECT 1 */}
+        <ProjectCard
           image="/projects/project7.png"
           title="Dentiva AI Dental-Health "
           desc="An AI-powered dental assistant web application that enables seamless doctor booking, appointment, and AI voice chat."
-          live="https://dentiva-ai-aman.netlify.app/"
+          live="https://dentiva-ai-aman.netlify.app"
           github="https://github.com/amandubey923/dentiva-ai"
-        />
-
-        {/* PROJECT 1 */}
-        <ProjectCard
-          image="/projects/project1.png"
-          title="AI Fitness Platform"
-          desc="An AI-powered fitness web application that generates personalized workout and diet plans."
-          live="https://ai-fitness-aman.netlify.app/"
-          github="https://github.com/amandubey923/ai-fitness"
         />
 
         {/* PROJECT 2 */}
         <ProjectCard
-          image="/projects/project2.png"
-          title="Video Calling Interview Platform"
-          desc="A real-time video calling platform built for conducting technical interviews. Used by interviewer and candidate."
-          live="https://video-calling-interview-plattform.netlify.app/"
-          github="https://github.com/amandubey923/Interview-video-calling-platform"
+          image="/projects/project1.png"
+          title="AI Fitness Platform"
+          desc="An AI-powered fitness web application that generates personalized workout and diet plans."
+          live="https://ai-fitness-aman.netlify.app"
+          github="https://github.com/amandubey923/ai-fitness"
         />
 
         {/* PROJECT 3 */}
+        <ProjectCard
+          image="/projects/project2.png"
+          title="Video Calling Interview Platform"
+          desc="A real-time video calling platform built for conducting technical interviews. Used by interviewer and candidate."
+          live="https://video-calling-interview-plattform.netlify.app"
+          github="https://github.com/amandubey923/Interview-video-calling-platform"
+        />
+
+        {/* PROJECT 4 */}
+        <ProjectCard
+          image="/projects/project8.png"
+          title="Productify"
+          desc="Productify is a full-stack SaaS platform that lets creators securely upload, manage, and showcase digital products with a scalable backend."
+          live="https://frontend-productify.vercel.app"
+          github="https://github.com/amandubey923/productify"
+        />
+
+        {/* PROJECT 5 */}
         <ProjectCard
           image="/projects/project3.png"
           title="Library Book Website"
@@ -65,7 +75,7 @@ export default function ProjectsPage() {
           github="https://github.com/amandubey923/LIBRARY-BOOK"
         />
 
-        {/* PROJECT 4 */}
+        {/* PROJECT 6 */}
         <ProjectCard
           image="/projects/project4.png"
           title="Text Utility Application"
@@ -74,7 +84,7 @@ export default function ProjectsPage() {
           github="https://github.com/amandubey923/textUtils"
         />
 
-        {/* PROJECT 5 – SPECIAL */}
+        {/* PROJECT 7 – SPECIAL */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
           <div className="relative h-60 w-full overflow-hidden">
             <Image
@@ -86,12 +96,11 @@ export default function ProjectsPage() {
           </div>
 
           <div className="p-8 space-y-4">
-            <h3 className="text-2xl font-semibold">
-              Book Suggestion App
-            </h3>
+            <h3 className="text-2xl font-semibold">Book Suggestion App</h3>
 
             <p className="text-muted-foreground leading-relaxed">
-              A full-stack book reccomendation app where you can upload image of book and give rating with your view.
+              A full-stack book reccomendation app where you can upload image of
+              book and give rating with your view.
             </p>
 
             {/* ACTIONS */}
@@ -129,7 +138,7 @@ transition-all duration-300 ease-out"
           </div>
         </div>
 
-        {/* PROJECT 6 */}
+        {/* PROJECT 8 */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden opacity-80">
           <div className="relative h-60 w-full overflow-hidden">
             <Image
@@ -145,9 +154,7 @@ transition-all duration-300 ease-out"
             <p className="text-muted-foreground leading-relaxed">
               An upcoming idea planned for future implementation.
             </p>
-            <span className="text-muted-foreground italic">
-              Coming Soon
-            </span>
+            <span className="text-muted-foreground italic">Coming Soon</span>
           </div>
         </div>
       </div>
@@ -156,13 +163,7 @@ transition-all duration-300 ease-out"
 }
 
 /* ================= REUSABLE CARD ================= */
-function ProjectCard({
-  image,
-  title,
-  desc,
-  live,
-  github,
-}: ProjectCardProps) {
+function ProjectCard({ image, title, desc, live, github }: ProjectCardProps) {
   return (
     <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
       <div className="relative h-60 w-full overflow-hidden">
