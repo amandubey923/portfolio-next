@@ -6,15 +6,15 @@ export default function Hero() {
   return (
     <section className="relative z-10 min-h-[calc(100vh-80px)] flex items-center">
       {/* Ambient Glow */}
-      <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-125 h-125 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-125 h-125 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
       {/* MAIN GRID */}
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-24 items-center w-full px-6 md:px-12 lg:px-20">
         {/* ================= LEFT CONTENT ================= */}
         <div className="space-y-8 relative">
           {/* Accent line */}
-          <div className="absolute -left-6 top-2 h-16 w-[2px] bg-primary/40 hidden lg:block" />
+          <div className="absolute -left-6 top-2 h-16 w-0.5 bg-primary/40 hidden lg:block" />
 
           <span className="text-sm tracking-widest text-primary uppercase">
             Hello, I’m
@@ -24,7 +24,7 @@ export default function Hero() {
             Aman{" "}
             <span className="text-primary relative">
               Dubey
-              <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-primary/60" />
+              <span className="absolute left-0 -bottom-2 w-full h-0.5 bg-primary/60" />
             </span>
           </h1>
 
