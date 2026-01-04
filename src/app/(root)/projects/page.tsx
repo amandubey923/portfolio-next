@@ -80,7 +80,7 @@ export default function ProjectsPage() {
           image="/projects/project4.png"
           title="Text Utility Application"
           desc="A productivity-focused text utility web app built with React. People can use for transforming large paragraph."
-          live="https://ephemeral-melomakarona-52889a.netlify.app/"
+          live="https://textutils-aman-923.netlify.app"
           github="https://github.com/amandubey923/textUtils"
         />
 
