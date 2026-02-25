@@ -97,6 +97,14 @@ export default function ContactPage() {
             >
               LeetCode →
             </Link>
+            <Link
+              href="https://www.geeksforgeeks.org/profile/kumaramag0dt"
+              target="_blank"
+              className="block text-l
+              g text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
+            >
+              GeeksforGeeks →
+            </Link>
           </div>
         </div>
 
