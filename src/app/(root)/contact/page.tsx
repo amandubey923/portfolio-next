@@ -90,7 +90,7 @@ export default function ContactPage() {
               LinkedIn →
             </Link>
             <Link
-              href="https://www.linkedin.com/in/aman-kr-dubey"
+              href="https://leetcode.com/u/aman_dubey923"
               target="_blank"
               className="block text-l
               g text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
