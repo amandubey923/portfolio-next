@@ -89,6 +89,14 @@ export default function ContactPage() {
             >
               LinkedIn →
             </Link>
+            <Link
+              href="https://www.linkedin.com/in/aman-kr-dubey"
+              target="_blank"
+              className="block text-l
+              g text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
+            >
+              LeetCode →
+            </Link>
           </div>
         </div>
 
