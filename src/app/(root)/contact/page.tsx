@@ -92,16 +92,14 @@ export default function ContactPage() {
             <Link
               href="https://leetcode.com/u/aman_dubey923"
               target="_blank"
-              className="block text-l
-              g text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
+              className="block text-lg text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
             >
               LeetCode →
             </Link>
             <Link
               href="https://www.geeksforgeeks.org/profile/kumaramag0dt"
               target="_blank"
-              className="block text-l
-              g text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
+              className="block text-lg text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
             >
               GeeksforGeeks →
             </Link>
