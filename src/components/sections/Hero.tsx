@@ -75,6 +75,18 @@ export default function Hero() {
               priority
               className="object-cover object-top"
             />
+            <div className="absolute bottom-6 left-6 flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-border">
+  
+  <span className="relative flex h-3 w-3">
+    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+  </span>
+
+  <span className="text-sm text-white font-medium">
+    Available for work
+  </span>
+
+</div>
           </div>
 
           {/* Decorative Corner Lines */}
