@@ -1,8 +1,10 @@
+"use client";
 import Link from "next/link";
 
 export default function ContactPage() {
   return (
     <section className="relative z-10 max-w-7xl mx-auto py-32 px-6 overflow-hidden">
+      
       {/* ================= BACKGROUND EFFECTS ================= */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -left-40 w-125 h-125 bg-primary/10 blur-[140px] rounded-full animate-slow-spin" />
@@ -25,38 +27,29 @@ export default function ContactPage() {
 
       {/* ================= MAIN GRID ================= */}
       <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* ================= CONTACT CARD ================= */}
-        <div className="group relative h-90 rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all duration-500 hover:border-primary hover:shadow-[0_0_80px_var(--cyber-glow-primary)] animate-fadeIn">
-          <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
-          <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/10 group-hover:ring-primary/30 transition" />
+        
+        {/* CONTACT CARD */}
+        <div className="group relative h-90 rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all duration-500 hover:border-primary hover:shadow-[0_0_80px_var(--cyber-glow-primary)]">
+          
+          <h3 className="text-2xl font-semibold mb-10">Contact Details</h3>
 
-          <h3 className="relative z-10 text-2xl font-semibold mb-10">
-            Contact Details
-          </h3>
-
-          <div className="relative z-10 space-y-6 text-muted-foreground">
+          <div className="space-y-6 text-muted-foreground">
             <p>
-              <span className="block text-sm text-muted-foreground mb-1">
-                Email
-              </span>
+              <span className="block text-sm mb-1">Email</span>
               <span className="text-lg text-foreground">
                 kumaraman19137@gmail.com
               </span>
             </p>
 
             <p>
-              <span className="block text-sm text-muted-foreground mb-1">
-                Phone
-              </span>
+              <span className="block text-sm mb-1">Phone</span>
               <span className="text-lg text-foreground">
                 +91 8969230625
               </span>
             </p>
 
             <p>
-              <span className="block text-sm text-muted-foreground mb-1">
-                Location
-              </span>
+              <span className="block text-sm mb-1">Location</span>
               <span className="text-lg text-foreground">
                 India
               </span>
@@ -64,58 +57,40 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* ================= SOCIAL CARD ================= */}
-        <div className="group relative h-90 rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all duration-500 hover:border-primary hover:shadow-[0_0_80px_var(--cyber-glow-primary)] animate-fadeIn">
-          <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
-          <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/10 group-hover:ring-primary/30 transition" />
+        {/* SOCIAL CARD */}
+        <div className="group relative h-90 rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all duration-500 hover:border-primary hover:shadow-[0_0_80px_var(--cyber-glow-primary)]">
 
-          <h3 className="relative z-10 text-2xl font-semibold mb-10">
-            Online Presence
-          </h3>
+          <h3 className="text-2xl font-semibold mb-10">Online Presence</h3>
 
-          <div className="relative z-10 space-y-6">
-            <Link
-              href="https://github.com/amandubey923"
-              target="_blank"
-              className="block text-lg text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
-            >
+          <div className="space-y-6">
+            <Link href="https://github.com/amandubey923" target="_blank"
+              className="block text-lg text-muted-foreground hover:text-primary transition">
               GitHub →
             </Link>
 
-            <Link
-              href="https://www.linkedin.com/in/aman-kr-dubey"
-              target="_blank"
-              className="block text-lg text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
-            >
+            <Link href="https://www.linkedin.com/in/aman-kr-dubey" target="_blank"
+              className="block text-lg text-muted-foreground hover:text-primary transition">
               LinkedIn →
             </Link>
-            <Link
-              href="https://leetcode.com/u/aman_dubey923"
-              target="_blank"
-              className="block text-lg text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
-            >
+
+            <Link href="https://leetcode.com/u/aman_dubey923" target="_blank"
+              className="block text-lg text-muted-foreground hover:text-primary transition">
               LeetCode →
             </Link>
-            <Link
-              href="https://www.geeksforgeeks.org/profile/kumaramag0dt"
-              target="_blank"
-              className="block text-lg text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
-            >
+
+            <Link href="https://www.geeksforgeeks.org/profile/kumaramag0dt" target="_blank"
+              className="block text-lg text-muted-foreground hover:text-primary transition">
               GeeksforGeeks →
             </Link>
           </div>
         </div>
 
-        {/* ================= CTA CARD ================= */}
-        <div className="group relative h-90 rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all duration-500 hover:border-primary hover:shadow-[0_0_80px_var(--cyber-glow-primary)] animate-fadeIn">
-          <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
-          <div className="absolute inset-0 rounded-2xl ring-1 ring-primary/10 group-hover:ring-primary/30 transition" />
+        {/* WORK CARD */}
+        <div className="group relative h-90 rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all duration-500 hover:border-primary hover:shadow-[0_0_80px_var(--cyber-glow-primary)]">
 
-          <h3 className="relative z-10 text-2xl font-semibold mb-8">
-            Work With Me
-          </h3>
+          <h3 className="text-2xl font-semibold mb-8">Work With Me</h3>
 
-          <p className="relative z-10 text-muted-foreground mb-10 leading-relaxed">
+          <p className="text-muted-foreground mb-10 leading-relaxed">
             I’m open to internships, freelance work, collaborations, and
             full-time roles. Let’s build something impactful together.
           </p>
@@ -123,12 +98,76 @@ export default function ContactPage() {
           <Link
             href="/resume/Resume2.pdf"
             target="_blank"
-            className="relative z-10 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 hover:scale-[1.03] shadow-lg shadow-primary/30"
+            className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 hover:scale-[1.03] shadow-lg shadow-primary/30"
           >
             View Resume
           </Link>
         </div>
       </div>
+
+      {/* ================= CONTACT FORM SECTION ================= */}
+      <div className="relative mt-28 max-w-3xl mx-auto">
+
+        <div className="rounded-2xl border border-border bg-card/40 backdrop-blur-xl p-10 transition-all hover:border-primary hover:shadow-[0_0_80px_var(--cyber-glow-primary)]">
+
+          <h3 className="text-2xl font-semibold mb-10 text-center">
+            Send Me a Message
+          </h3>
+
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+
+              const formData = new FormData(e.currentTarget);
+
+              await fetch("/api/contact", {
+                method: "POST",
+                body: JSON.stringify({
+                  name: formData.get("name"),
+                  email: formData.get("email"),
+                  message: formData.get("message"),
+                }),
+              });
+
+              alert("Message sent successfully!");
+            }}
+            className="space-y-6"
+          >
+
+            <input
+              name="name"
+              placeholder="Your Name"
+              required
+              className="w-full rounded-lg border border-border bg-background/40 backdrop-blur-md px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition"
+            />
+
+            <input
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              required
+              className="w-full rounded-lg border border-border bg-background/40 backdrop-blur-md px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition"
+            />
+
+            <textarea
+              name="message"
+              rows={5}
+              placeholder="Your Message"
+              required
+              className="w-full rounded-lg border border-border bg-background/40 backdrop-blur-md px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition resize-none"
+            />
+
+            <button
+              type="submit"
+              className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:scale-[1.03] hover:opacity-90 shadow-lg shadow-primary/30"
+            >
+              Send Message
+            </button>
+
+          </form>
+        </div>
+      </div>
+
     </section>
   );
 }
