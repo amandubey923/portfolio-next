@@ -1,10 +1,30 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
+import { CheckCircle } from "lucide-react";
 
 export default function ContactPage() {
+
+  const [showSuccess, setShowSuccess] = useState(false);
+
   return (
     <section className="relative z-10 max-w-7xl mx-auto py-32 px-6 overflow-hidden">
-      
+
+      {/* SUCCESS TOAST */}
+      {showSuccess && (
+        <div className="fixed top-28 left-1/2 -translate-x-1/2 z-50">
+          <div className="flex items-center gap-3 rounded-xl border border-border bg-card/60 backdrop-blur-xl px-6 py-4 shadow-[0_0_40px_var(--cyber-glow-primary)] animate-fadeIn">
+
+            <CheckCircle className="text-green-400 w-6 h-6" />
+
+            <span className="text-sm font-medium text-foreground">
+              Message sent successfully!
+            </span>
+
+          </div>
+        </div>
+      )}
+
       {/* ================= BACKGROUND EFFECTS ================= */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -left-40 w-125 h-125 bg-primary/10 blur-[140px] rounded-full animate-slow-spin" />
@@ -115,22 +135,32 @@ export default function ContactPage() {
           </h3>
 
           <form
-            onSubmit={async (e) => {
-              e.preventDefault();
+     onSubmit={async (e) => {
+  e.preventDefault();
 
-              const formData = new FormData(e.currentTarget);
+  const form = e.currentTarget; // save reference
+  const formData = new FormData(form);
 
-              await fetch("/api/contact", {
-                method: "POST",
-                body: JSON.stringify({
-                  name: formData.get("name"),
-                  email: formData.get("email"),
-                  message: formData.get("message"),
-                }),
-              });
+  await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    }),
+  });
 
-              alert("Message sent successfully!");
-            }}
+  setShowSuccess(true);
+
+  form.reset(); // safe now
+
+  setTimeout(() => {
+    setShowSuccess(false);
+  }, 3000);
+}}
             className="space-y-6"
           >
 

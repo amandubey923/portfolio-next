@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageSquare } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -52,6 +52,13 @@ export default function Hero() {
               Download Resume
             </Link>
           </div>
+          <Link
+            href="/contact-form"
+            className="group inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
+          >
+            <MessageSquare className="h-4 w-4 transition group-hover:scale-110" />
+            Message Me
+          </Link>
         </div>
 
         {/* ================= RIGHT IMAGE ================= */}
