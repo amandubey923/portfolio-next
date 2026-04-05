@@ -15,11 +15,13 @@ interface ProjectCardProps {
 export default function ProjectsPage() {
   return (
     <section className="relative z-10 max-w-7xl mx-auto py-32 px-6">
-      {/* Heading */}
+      
+      {/* ================= HEADING ================= */}
       <div className="mb-24">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
           My <span className="text-primary">Projects</span>
         </h2>
+
         <p className="mt-6 max-w-2xl text-muted-foreground">
           A curated selection of projects showcasing my ability to design,
           develop, and deploy scalable, real-world applications using modern web
@@ -27,19 +29,19 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      {/* Projects Grid */}
+      {/* ================= PROJECT GRID ================= */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        
-        {/* PROJECT 1 */}
+
+        {/* ===== PROJECT 1 ===== */}
         <ProjectCard
           image="/projects/project7.png"
-          title="Dentiva AI Dental-Health "
+          title="Dentiva AI Dental-Health"
           desc="An AI-powered dental assistant web application that enables seamless doctor booking, appointment, and AI voice chat."
           live="https://dentiva-ai-aman.netlify.app"
           github="https://github.com/amandubey923/dentiva-ai"
         />
 
-        {/* PROJECT 2 */}
+        {/* ===== PROJECT 2 ===== */}
         <ProjectCard
           image="/projects/project1.png"
           title="AI Fitness Platform"
@@ -48,25 +50,16 @@ export default function ProjectsPage() {
           github="https://github.com/amandubey923/ai-fitness"
         />
 
-        {/* PROJECT 3 */}
+        {/* ===== PROJECT 3 ===== */}
         <ProjectCard
-          image="/projects/project2.png"
-          title="Video Calling Interview Platform"
-          desc="A real-time video calling platform built for conducting technical interviews. Used by interviewer and candidate."
-          live="https://video-calling-interview-plattform.netlify.app"
-          github="https://github.com/amandubey923/Interview-video-calling-platform"
+          image="/projects/project9.png"
+          title="AI Image Generator"
+          desc="A full-stack SaaS platform that lets users upload images and transform them into different artistic styles instantly with a smooth and modern UI."
+          live="https://image-generator-studio.netlify.app"
+          github="https://github.com/amandubey923/image-generator"
         />
 
-        {/* PROJECT 4 */}
-        <ProjectCard
-          image="/projects/project8.png"
-          title="Productify"
-          desc="Productify is a full-stack SaaS platform that lets creators securely upload, manage, and showcase digital products with a scalable backend."
-          live="https://frontend-productify.vercel.app"
-          github="https://github.com/amandubey923/productify"
-        />
-
-        {/* PROJECT 5 */}
+        {/* ===== PROJECT 4 ===== */}
         <ProjectCard
           image="/projects/project3.png"
           title="Library Book Website"
@@ -75,7 +68,16 @@ export default function ProjectsPage() {
           github="https://github.com/amandubey923/LIBRARY-BOOK"
         />
 
-        {/* PROJECT 6 */}
+        {/* ===== PROJECT 5 ===== */}
+        <ProjectCard
+          image="/projects/project2.png"
+          title="Video Calling Interview Platform"
+          desc="A real-time video calling platform built for conducting technical interviews. Used by interviewer and candidate."
+          live="https://video-calling-interview-plattform.netlify.app"
+          github="https://github.com/amandubey923/Interview-video-calling-platform"
+        />
+
+        {/* ===== PROJECT 6 ===== */}
         <ProjectCard
           image="/projects/project4.png"
           title="Text Utility Application"
@@ -84,8 +86,9 @@ export default function ProjectsPage() {
           github="https://github.com/amandubey923/textUtils"
         />
 
-        {/* PROJECT 7 – SPECIAL */}
+        {/* ===== PROJECT 7 (CUSTOM CARD) ===== */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
+          
           <div className="relative h-60 w-full overflow-hidden">
             <Image
               src="/projects/project5.png"
@@ -105,6 +108,7 @@ export default function ProjectsPage() {
 
             {/* ACTIONS */}
             <div className="flex items-center justify-between pt-2">
+
               {/* IMAGE PREVIEW */}
               <Link
                 href="/project5/projectimg5.jpg"
@@ -120,16 +124,16 @@ export default function ProjectsPage() {
                 href="https://github.com/amandubey923/book-store-app"
                 target="_blank"
                 className="relative flex items-center gap-2 rounded-full
-bg-primary/20
-px-4 py-2
-text-primary font-semibold
-shadow-[0_0_25px_var(--cyber-glow-primary),0_0_60px_rgba(0,255,255,0.25)]
-ring-1 ring-primary/40
-backdrop-blur-md
-hover:scale-110
-hover:shadow-[0_0_40px_var(--cyber-glow-primary),0_0_90px_rgba(0,255,255,0.45)]
-hover:ring-primary/70
-transition-all duration-300 ease-out"
+                bg-primary/20
+                px-4 py-2
+                text-primary font-semibold
+                shadow-[0_0_25px_var(--cyber-glow-primary),0_0_60px_rgba(0,255,255,0.25)]
+                ring-1 ring-primary/40
+                backdrop-blur-md
+                hover:scale-110
+                hover:shadow-[0_0_40px_var(--cyber-glow-primary),0_0_90px_rgba(0,255,255,0.45)]
+                hover:ring-primary/70
+                transition-all duration-300 ease-out"
               >
                 <Github size={18} />
                 GitHub
@@ -138,8 +142,18 @@ transition-all duration-300 ease-out"
           </div>
         </div>
 
-        {/* PROJECT 8 */}
+        {/* ===== PROJECT 8 ===== */}
+        <ProjectCard
+          image="/projects/project8.png"
+          title="Productify"
+          desc="Productify is a full-stack SaaS platform that lets creators securely upload, manage, and showcase digital products with a scalable backend."
+          live="https://frontend-productify.vercel.app"
+          github="https://github.com/amandubey923/productify"
+        />
+
+        {/* ===== PROJECT 9 (FUTURE) ===== */}
         <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden opacity-80">
+          
           <div className="relative h-60 w-full overflow-hidden">
             <Image
               src="/projects/project6.png"
@@ -151,30 +165,46 @@ transition-all duration-300 ease-out"
 
           <div className="p-8 space-y-4">
             <h3 className="text-2xl font-semibold">Future Project</h3>
+
             <p className="text-muted-foreground leading-relaxed">
               An upcoming idea planned for future implementation.
             </p>
-            <span className="text-muted-foreground italic">Coming Soon</span>
+
+            <span className="text-muted-foreground italic">
+              Coming Soon
+            </span>
           </div>
         </div>
+
       </div>
     </section>
   );
 }
 
 /* ================= REUSABLE CARD ================= */
-function ProjectCard({ image, title, desc, live, github }: ProjectCardProps) {
+function ProjectCard({
+  image,
+  title,
+  desc,
+  live,
+  github,
+}: ProjectCardProps) {
   return (
     <div className="group rounded-2xl border border-border bg-card/40 backdrop-blur-xl overflow-hidden transition hover:border-primary hover:shadow-[0_0_60px_var(--cyber-glow-primary)]">
+      
       <div className="relative h-60 w-full overflow-hidden">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
 
       <div className="p-8 space-y-4">
         <h3 className="text-2xl font-semibold">{title}</h3>
-        <p className="text-muted-foreground leading-relaxed">{desc}</p>
+
+        <p className="text-muted-foreground leading-relaxed">
+          {desc}
+        </p>
 
         <div className="flex items-center justify-between">
+          
           <Link
             href={live}
             target="_blank"
@@ -187,16 +217,16 @@ function ProjectCard({ image, title, desc, live, github }: ProjectCardProps) {
             href={github}
             target="_blank"
             className="relative flex items-center gap-2 rounded-full
-bg-primary/20
-px-4 py-2
-text-primary font-semibold
-shadow-[0_0_25px_var(--cyber-glow-primary),0_0_60px_rgba(0,255,255,0.25)]
-ring-1 ring-primary/40
-backdrop-blur-md
-hover:scale-110
-hover:shadow-[0_0_40px_var(--cyber-glow-primary),0_0_90px_rgba(0,255,255,0.45)]
-hover:ring-primary/70
-transition-all duration-300 ease-out"
+            bg-primary/20
+            px-4 py-2
+            text-primary font-semibold
+            shadow-[0_0_25px_var(--cyber-glow-primary),0_0_60px_rgba(0,255,255,0.25)]
+            ring-1 ring-primary/40
+            backdrop-blur-md
+            hover:scale-110
+            hover:shadow-[0_0_40px_var(--cyber-glow-primary),0_0_90px_rgba(0,255,255,0.45)]
+            hover:ring-primary/70
+            transition-all duration-300 ease-out"
           >
             <Github size={18} />
             GitHub
