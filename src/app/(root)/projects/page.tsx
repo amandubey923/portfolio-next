@@ -34,6 +34,14 @@ export default function ProjectsPage() {
 
         {/* ===== PROJECT 1 ===== */}
         <ProjectCard
+          image="/projects/project10.png"
+          title="Transaction-Validator "
+          desc="Transaction Validation & Processing Platform, Upload transaction CSV files, validate records, clean data, detect errors and download processed files."
+          live="https://transaction-validator-aman.vercel.app"
+          github="https://github.com/amandubey923/transaction-validator"
+        />
+
+        <ProjectCard
           image="/projects/project7.png"
           title="Dentiva AI Dental-Health"
           desc="An AI-powered dental assistant web application that enables seamless doctor booking, appointment, and AI voice chat."
