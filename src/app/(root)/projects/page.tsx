@@ -91,7 +91,7 @@ export default function ProjectsPage() {
           title="Text Utility Application"
           desc="A productivity-focused text utility web app built with React. People can use for transforming large paragraph."
           live="https://text-workspace.vercel.app"
-          github="https://github.com/amandubey923/textUtils"
+          github="https://github.com/amandubey923/TextWorkspace"
         />
 
         {/* ===== PROJECT 7 (CUSTOM CARD) ===== */}
