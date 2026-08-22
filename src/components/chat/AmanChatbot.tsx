@@ -208,7 +208,13 @@ export default function AmanChatbot() {
       <div className="fixed bottom-6 right-4 sm:right-6 z-40">
         <button
           type="button"
-          onClick={() => setIsOpen((prev) => !prev)}
+          onPointerDown={(e) => {
+            e.stopPropagation();
+            setIsOpen((prev) => !prev);
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           aria-label={isOpen ? "Close AI Assistant" : "Open Aman AI Portfolio Assistant"}
           className="group relative flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-card/90 backdrop-blur-xl border border-primary/40 text-foreground shadow-[0_0_25px_var(--cyber-glow-primary)] hover:scale-105 hover:border-primary active:scale-95 transition-all duration-300 cursor-pointer"
         >
