@@ -151,12 +151,37 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(24, 206, 242, 0.3) var(--cyber-dark);
+    overflow-x: clip;
+  }
   body {
     @apply bg-background text-foreground;
+    overflow-x: clip;
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
+  }
+
+  /* Single Document Cyber Scrollbar */
+  html::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  html::-webkit-scrollbar-track {
+    background: var(--cyber-dark);
+  }
+  html::-webkit-scrollbar-thumb {
+    background: rgba(24, 206, 242, 0.25);
+    border-radius: 4px;
+    border: 1px solid rgba(24, 206, 242, 0.1);
+  }
+  html::-webkit-scrollbar-thumb:hover {
+    background: var(--cyber-blue-bright);
+    box-shadow: 0 0 12px var(--cyber-glow-primary);
   }
 }
 
@@ -183,7 +208,7 @@
 }
 
 .animate-slow-spin {
-  animation: slow-spin 12s linear infinite;
+  animation: slow-spin 16s linear infinite;
 }
 
 @keyframes sound-wave {
@@ -205,22 +230,54 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.5s ease-in-out forwards;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-html,
-body {
-  overflow-x: hidden;
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
-html,
-body,
-#__next {
-  max-width: 100%;
-  overflow-x: hidden;
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4.5s ease-in-out infinite 1s;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
 }

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Github, Linkedin, Code2, FileText, ArrowRight } from "lucide-react";
+import { Mail, Github, Linkedin, Code2, FileText } from "lucide-react";
 import CyberCard from "@/components/shared/CyberCard";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ContactFormComponent from "@/components/shared/ContactFormComponent";
 
-export default function ContactPage() {
+export default function Contact() {
   return (
-    <section className="relative z-10 max-w-7xl mx-auto py-16 md:py-24 px-4 sm:px-6">
+    <section id="contact" className="relative z-10 scroll-mt-24 max-w-7xl mx-auto py-12 md:py-20 px-4 sm:px-6">
       {/* Background Glows */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute -top-40 -left-40 w-125 h-125 bg-primary/10 blur-[140px] rounded-full animate-slow-spin" />
@@ -166,3 +166,4 @@ export default function ContactPage() {
     </section>
   );
 }
+
