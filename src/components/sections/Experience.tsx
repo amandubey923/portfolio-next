@@ -1,4 +1,4 @@
-import { Calendar, Trophy, Terminal, Award, GitBranch, Code, CheckCircle2, Cpu } from "lucide-react";
+import { Calendar, Trophy, Terminal, Award, GitBranch, Code, CheckCircle2 } from "lucide-react";
 import CyberCard from "@/components/shared/CyberCard";
 import SectionHeading from "@/components/shared/SectionHeading";
 
@@ -16,129 +16,175 @@ const experiences: TimelineItem[] = [
   {
     id: "01",
     title: "Smart India Hackathon (SIH)",
-    category: "National Hackathon",
+    category: "National Competition",
     period: "2023 – 2024",
     icon: Trophy,
-    context: "SIH Participant // Collaborative Engineering & Problem Solving",
+    context: "National Finalist & Technical Architecture Lead",
     points: [
-      "Active team participant across SIH national hackathon problem statement selection and development rounds.",
-      "Collaborated in agile team sprints, system architecture formulation, and live technical evaluations.",
-      "Engineered core application logic, database schemas, and intuitive responsive frontend interfaces.",
-      "Strengthened rapid problem-solving, real-time collaboration, and delivery under rigorous deadlines.",
+      "Core engineering team member across SIH 2023 & 2024 national hackathon editions.",
+      "Successfully cleared intensive college evaluation and national problem statement shortlisting rounds.",
+      "Spearheaded core logic building, architecture diagramming, system workflows, and technical presentations.",
+      "Strengthened cross-functional collaboration, high-pressure execution, and rapid agile delivery under strict deadlines.",
     ],
   },
   {
     id: "02",
-    title: "Full-Stack & AI Systems Engineering",
+    title: "Full-Stack System Engineering",
     category: "Autonomous Engineering",
     period: "2023 – Present",
     icon: Terminal,
-    context: "Production-Grade Web Applications",
+    context: "Production Deployments & Scale",
     points: [
-      "Architected and deployed full-stack web applications utilizing Next.js (App Router), React, TypeScript, and Tailwind CSS.",
-      "Integrated multi-model databases including MongoDB, PostgreSQL, Firebase, Convex, and Neon SQL.",
-      "Implemented AI assistants leveraging Gemini AI and Vapi AI for conversational voice and clinical triage.",
-      "Configured automated CI/CD workflows on Vercel and Netlify ensuring optimized serverless execution.",
+      "Architected and deployed 10+ production-ready full-stack applications using Next.js 16, React 19, TypeScript, and Tailwind CSS.",
+      "Implemented secure authentication, RESTful APIs, real-time WebRTC communications, and database schemas.",
+      "Enforced clean architecture, modular component patterns, and responsive mobile-first interfaces.",
+      "Configured automated CI/CD deployment pipelines on Vercel and Netlify with optimized build outputs.",
     ],
   },
   {
     id: "03",
-    title: "Competitive Programming & Problem Solving",
-    category: "Algorithmic Foundations",
-    period: "500+ Problems",
-    icon: Cpu,
-    context: "Data Structures & Algorithmic Optimization",
+    title: "Applied Software Engineering",
+    category: "Practical Development",
+    period: "Ongoing Practice",
+    icon: Code,
+    context: "Full-Stack Application Development",
     points: [
-      "Solved 500+ algorithmic problems across LeetCode and GeeksforGeeks platforms.",
-      "Developed deep mastery in asymptotic complexity analysis, arrays, strings, trees, and graph algorithms.",
-      "Maintained consistent problem-solving discipline earning LeetCode and GFG recognition badges.",
+      "Engineered comprehensive frontend interfaces and backend services addressing practical real-world problem statements.",
+      "Participated in iterative code reviews, debugging sessions, and performance benchmarking.",
+      "Adhered to modern web standards, semantic HTML, and strict TypeScript type-safety.",
+      "Developed strong engineering discipline and rapid troubleshooting capabilities across full-stack environments.",
     ],
   },
   {
     id: "04",
-    title: "Open Source & Collaborative Engineering",
-    category: "Developer Community",
-    period: "Continuous Practice",
+    title: "Open Source & Developer Community",
+    category: "Collaborative Engineering",
+    period: "Active Contributor",
     icon: GitBranch,
     context: "Git Workflows & Version Control",
     points: [
-      "Managed Git and GitHub workflows including feature branching, pull request reviews, and merge conflict resolution.",
-      "Maintained modular repository architectures adhering to industry best practices and strict TypeScript typing.",
-      "Utilized modern developer tooling including Code-Rabbit and VS Code extensions for code quality.",
+      "Actively engaged with open source codebases, improving code readability, documentation, and maintainability.",
+      "Managed version control workflows, pull requests, branch management, and collaborative code merges via GitHub.",
+      "Refactored legacy code into modular, reusable components adhering to industry best practices.",
     ],
   },
   {
     id: "05",
-    title: "Applied Web Systems & Product Ownership",
+    title: "Independent Solutions & Projects",
     category: "End-to-End Delivery",
-    period: "Ongoing Practice",
+    period: "Independent Practice",
     icon: Award,
-    context: "Full-Lifecycle Engineering",
+    context: "Product Ownership & Deployment",
     points: [
-      "Delivered complete end-to-end web applications independently from architectural planning to live cloud deployment.",
-      "Formulated clean, user-centric interfaces with responsive layouts, accessible controls, and resilient error states.",
-      "Maintained complete project ownership, delivery accountability, and rigorous cross-device testing.",
+      "Delivered complete end-to-end web applications independently from concept to production deployment.",
+      "Translated complex user requirements into clean, scalable software architectures with intuitive user interfaces.",
+      "Maintained complete project ownership, delivery accountability, and rigorous testing across diverse device viewports.",
+    ],
+  },
+  {
+    id: "06",
+    title: "Competitive Programming & Problem Solving",
+    category: "Algorithmic Mastery",
+    period: "100+ Days Streak",
+    icon: Award,
+    context: "DSA & Algorithmic Optimization",
+    points: [
+      "Earned the LeetCode 100 Days Badge through disciplined daily problem solving in Data Structures and Algorithms.",
+      "Strengthened proficiency in computational thinking, time/space complexity analysis, and algorithmic optimization in C++ and JavaScript.",
+      "Solved 500+ algorithmic problems across GeeksforGeeks and LeetCode platforms.",
     ],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative scroll-mt-24 py-12 md:py-16">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <SectionHeading
-          tag="// 04. ENGINEERING JOURNEY"
-          title="Milestones & Experience"
-          description="Chronological record of competitive problem solving, hackathon participation, and end-to-end system engineering."
-        />
+    <section
+      id="experience"
+      className="relative z-10 scroll-mt-24 max-w-7xl mx-auto py-10 md:py-16 px-4 sm:px-6 space-y-8"
+    >
+      {/* SECTION HEADING */}
+      <SectionHeading
+        tag="// 04. ENGINEERING JOURNEY"
+        title="Engineering"
+        highlight="Journey & Milestones"
+        description="A chronological record of national hackathons, production system deployments, algorithmic achievements, and autonomous product deliveries."
+      />
 
-        {/* ================= TIMELINE CONTAINER ================= */}
-        <div className="relative mt-12 space-y-8 before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:via-primary/30 before:to-transparent">
-          {experiences.map((exp, idx) => {
-            const Icon = exp.icon;
-            const isEven = idx % 2 === 0;
+      {/* ================= TIMELINE CONTAINER ================= */}
+      <div className="relative">
+        {/* Desktop Center Spine */}
+        <div className="hidden lg:block absolute left-1/2 top-4 bottom-4 w-[2px] -translate-x-1/2 bg-gradient-to-b from-primary via-primary/30 to-primary/10" />
+
+        {/* Mobile Left Spine */}
+        <div className="lg:hidden absolute left-5 top-4 bottom-4 w-[2px] bg-gradient-to-b from-primary via-primary/30 to-primary/10" />
+
+        <div className="space-y-6 lg:space-y-8">
+          {experiences.map((item, index) => {
+            const isEven = index % 2 === 0;
+            const Icon = item.icon;
 
             return (
               <div
-                key={exp.id}
-                className={`relative flex items-center md:justify-between ${
-                  isEven ? "md:flex-row-reverse" : ""
-                }`}
+                key={index}
+                className={`relative flex flex-col lg:flex-row items-start ${
+                  isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                } gap-6 lg:gap-12`}
               >
-                {/* TIMELINE NODE ICON */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex h-9 w-9 items-center justify-center rounded-xl bg-card border border-primary/50 text-primary shadow-[0_0_15px_var(--cyber-glow-primary)] z-10">
-                  <Icon size={16} />
+                {/* Center Node Dot for Desktop */}
+                <div className="hidden lg:flex absolute left-1/2 top-7 -translate-x-1/2 z-20 h-7 w-7 items-center justify-center rounded-full bg-cyber-dark border-2 border-primary shadow-[0_0_20px_var(--cyber-glow-primary)]">
+                  <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                 </div>
 
-                {/* CONTENT CARD */}
-                <div className="ml-12 md:ml-0 md:w-[44%]">
-                  <CyberCard className="p-6 border border-primary/20 bg-card/60 backdrop-blur-xl hover:border-primary/50 transition-all duration-300 shadow-[0_0_25px_rgba(0,0,0,0.3)]">
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <span className="text-[10px] font-mono text-primary uppercase font-bold tracking-wider">
-                        {exp.category}
-                      </span>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono text-muted-foreground bg-background/60 border border-border">
-                        {exp.period}
-                      </span>
+                {/* Mobile Node Dot */}
+                <div className="lg:hidden absolute left-5 top-7 -translate-x-1/2 z-20 h-4 w-4 rounded-full bg-cyber-dark border-2 border-primary shadow-[0_0_12px_var(--cyber-glow-primary)] flex items-center justify-center">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                </div>
+
+                {/* Card Container */}
+                <div className="w-full lg:w-[calc(50%-1.5rem)] pl-9 lg:pl-0">
+                  <CyberCard className="p-5 sm:p-6 space-y-3">
+                    {/* Header */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-primary/15">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary border border-primary/30">
+                          <Icon size={16} />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-[10px] font-mono text-primary tracking-widest uppercase block">
+                            // MILESTONE {item.id} • {item.category}
+                          </span>
+                          <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground group-hover:text-primary transition-colors truncate">
+                            {item.title}
+                          </h3>
+                        </div>
+                      </div>
+
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 shrink-0">
+                        <Calendar size={11} />
+                        <span>{item.period}</span>
+                      </div>
                     </div>
 
-                    <h3 className="text-base font-bold text-foreground">
-                      {exp.title}
-                    </h3>
-                    <p className="text-xs font-mono text-primary/80 mb-4">
-                      {exp.context}
-                    </p>
+                    <div className="text-xs font-mono text-primary/80">
+                      // Context: {item.context}
+                    </div>
 
-                    <ul className="space-y-2 text-xs text-muted-foreground">
-                      {exp.points.map((pt, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-2 leading-relaxed">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
-                          <span>{pt}</span>
+                    {/* Bullet Points */}
+                    <ul className="space-y-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {item.points.map((point, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-2">
+                          <span className="text-primary font-bold text-xs leading-none mt-1 shrink-0">
+                            ›
+                          </span>
+                          <span>{point}</span>
                         </li>
                       ))}
                     </ul>
                   </CyberCard>
                 </div>
+
+                {/* Empty space for opposite side on Desktop */}
+                <div className="hidden lg:block lg:w-[calc(50%-1.5rem)]" />
               </div>
             );
           })}

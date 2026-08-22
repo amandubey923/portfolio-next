@@ -162,7 +162,7 @@ export default function DeveloperDossierView() {
                 </a>
                 <span className="opacity-30 hidden sm:inline">•</span>
                 <Link
-                  href="/"
+                  href="https://aman3dportfolio.vercel.app"
                   className="flex items-center gap-1.5 hover:text-primary transition font-medium"
                   title="Portfolio Home"
                 >
