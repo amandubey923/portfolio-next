@@ -128,18 +128,18 @@ export default function Hero() {
           <div className="pt-6 border-t border-primary/20 grid grid-cols-3 gap-4 max-w-lg">
             <div className="space-y-1">
               <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
-                250+
+                10+
               </span>
               <span className="block text-xs text-muted-foreground">
-                Days LeetCode
+                Projects Built
               </span>
             </div>
             <div className="space-y-1">
               <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
-                500+
+                250+
               </span>
               <span className="block text-xs text-muted-foreground">
-                DSA Problems Solved
+                Days LeetCode
               </span>
             </div>
             <div className="space-y-1">
