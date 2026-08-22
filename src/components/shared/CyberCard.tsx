@@ -72,7 +72,7 @@ export default function CyberCard({
           className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{
             background: isHovered
-              ? `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(24, 206, 242, 0.15), transparent 70%)`
+              ? `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, var(--cyber-glow-primary), transparent 70%)`
               : "none",
           }}
         />

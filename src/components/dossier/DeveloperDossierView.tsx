@@ -55,7 +55,7 @@ export default function DeveloperDossierView() {
   return (
     <div className="relative min-h-[calc(100vh-120px)] flex items-center justify-center py-6 sm:py-10 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto">
       {/* Background Ambient Radial Glow */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(24,206,242,0.1),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(56,189,248,0.07),transparent_50%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,var(--cyber-glow-primary),transparent_45%),radial-gradient(circle_at_80%_80%,var(--cyber-glow-strong),transparent_50%)]" />
 
       {/* Main Dossier Glass Shell */}
       <div className="relative w-full rounded-3xl p-[1.5px] overflow-hidden bg-gradient-to-b from-primary/40 via-primary/10 to-transparent shadow-[0_0_50px_rgba(0,0,0,0.6)]">

@@ -14,6 +14,7 @@ import {
   FileText,
 } from "lucide-react";
 import SocialDock from "./SocialDock";
+import ThemeButton from "@/components/theme/ThemeButton";
 
 const navLinks = [
   { name: "Home", href: "/#home", id: "home" },
@@ -123,7 +124,7 @@ export default function Navbar() {
             : "bg-background/60 backdrop-blur-md border-b border-border"
         }`}
       >
-        <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3.5">
           {/* LOGO */}
           <Link
             href="/#home"
@@ -150,7 +151,7 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP LINKS */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -158,7 +159,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative py-1 text-sm tracking-wide transition-all duration-300 ${
+                  className={`relative py-1 text-xs xl:text-sm tracking-wide transition-all duration-300 ${
                     isActive
                       ? "text-primary font-semibold drop-shadow-[0_0_10px_var(--cyber-glow-primary)]"
                       : "text-muted-foreground hover:text-foreground"
@@ -174,32 +175,42 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* DESKTOP CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* DESKTOP CTA & THEME BUTTON */}
+          <div className="hidden lg:flex items-center gap-3">
+            <ThemeButton />
+
             <Link
               href="/resume/Resume2.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[0_0_20px_var(--cyber-glow-primary)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_var(--cyber-glow-strong)] active:scale-95"
+              className="relative inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs xl:text-sm font-semibold shadow-[0_0_20px_var(--cyber-glow-primary)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_var(--cyber-glow-strong)] active:scale-95"
+              style={{
+                backgroundColor: "var(--primary)",
+                color: "var(--primary-foreground)",
+              }}
             >
-              <FileText size={16} />
+              <FileText size={15} />
               <span>Resume</span>
             </Link>
           </div>
 
-          {/* MOBILE TOGGLE BUTTON */}
-          <button
-            onClick={() => setOpen(!open)}
-            aria-label={open ? "Close menu" : "Open navigation menu"}
-            className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-primary/30 bg-card/60 text-foreground backdrop-blur-md transition hover:border-primary hover:text-primary"
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* MOBILE CONTROLS (Theme + Menu Toggle) */}
+          <div className="flex lg:hidden items-center gap-2">
+            <ThemeButton />
+
+            <button
+              onClick={() => setOpen(!open)}
+              aria-label={open ? "Close menu" : "Open navigation menu"}
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-primary/30 bg-card/60 text-foreground backdrop-blur-md transition hover:border-primary hover:text-primary"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </nav>
 
         {/* MOBILE MENU DRAWER */}
         {open && (
-          <div className="lg:hidden fixed inset-0 top-[73px] z-40 bg-background/95 backdrop-blur-2xl border-t border-primary/20 flex flex-col justify-between p-6 animate-fadeIn overflow-y-auto">
+          <div className="lg:hidden fixed inset-0 top-[65px] z-40 bg-background/95 backdrop-blur-2xl border-t border-primary/20 flex flex-col justify-between p-6 animate-fadeIn overflow-y-auto">
             {/* Links List */}
             <div className="flex flex-col gap-2">
               <span className="text-xs font-mono tracking-widest text-primary/70 mb-2">
@@ -231,10 +242,14 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_0_25px_var(--cyber-glow-primary)] transition hover:opacity-90 active:scale-95"
+                className="mt-4 flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold shadow-[0_0_25px_var(--cyber-glow-primary)] transition hover:opacity-90 active:scale-95"
+                style={{
+                  backgroundColor: "var(--primary)",
+                  color: "var(--primary-foreground)",
+                }}
               >
                 <FileText size={18} />
-                <span>View & Download Resume</span>
+                <span>View &amp; Download Resume</span>
               </Link>
             </div>
 

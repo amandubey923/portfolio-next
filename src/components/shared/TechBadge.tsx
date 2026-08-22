@@ -16,7 +16,7 @@ export default function TechBadge({
 }: TechBadgeProps) {
   const variantStyles = {
     subtle:
-      "bg-primary/10 border-primary/20 text-sky-200 hover:border-primary/50 hover:bg-primary/20 hover:text-white",
+      "bg-primary/10 border-primary/20 text-foreground/90 hover:border-primary/50 hover:bg-primary/20 hover:text-foreground",
     glow:
       "bg-primary/20 border-primary/40 text-primary shadow-[0_0_15px_var(--cyber-glow-primary)] hover:scale-105",
     outline:
@@ -36,4 +36,3 @@ export default function TechBadge({
     </span>
   );
 }
-

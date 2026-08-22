@@ -35,7 +35,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative z-10 scroll-mt-28 min-h-[calc(100vh-100px)] flex flex-col justify-center py-12 md:py-20">
+    <section id="home" className="relative z-10 scroll-mt-28 min-h-[calc(100vh-90px)] flex flex-col justify-center py-8 md:py-14">
       {/* Ambient Glows */}
       <div className="absolute -top-32 -left-32 w-125 h-125 bg-primary/10 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-125 h-125 bg-primary/10 blur-[130px] rounded-full pointer-events-none" />
@@ -48,12 +48,12 @@ export default function Hero() {
           <div className="absolute -left-6 top-3 h-20 w-0.5 bg-gradient-to-b from-primary via-primary/40 to-transparent hidden lg:block" />
 
           {/* Terminal Metadata Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest text-primary bg-primary/10 border border-primary/30 shadow-[0_0_20px_var(--cyber-glow-primary)]">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest text-primary bg-primary/10 border border-primary/30 shadow-[0_0_20px_var(--cyber-glow-primary)]">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
             </span>
-            <span>&gt; FULL-STACK SOFTWARE ENGINEER</span>
+            <span>&gt; FULL-STACK SOFTWARE ENGINEER • AVAILABLE FOR HIRE</span>
           </div>
 
           {/* Headline */}
@@ -70,19 +70,34 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Description */}
-          <p className="max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            A disciplined Full-Stack Developer specializing in architecting
-            high-performance, scalable web systems and modern interactive user
-            experiences with production-grade engineering practices.
-          </p>
+          {/* Description & Core Stack */}
+          <div className="space-y-3">
+            <p className="max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+              A disciplined Full-Stack Developer specializing in architecting
+              high-performance, scalable web systems and modern interactive user
+              experiences with production-grade engineering practices.
+            </p>
+            <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-primary/90">
+              <span className="text-muted-foreground">// CORE STACK:</span>
+              <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20">Next.js 16</span>
+              <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20">React 19</span>
+              <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20">TypeScript</span>
+              <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20">Node.js</span>
+              <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20">MongoDB</span>
+              <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20">SQL</span>
+            </div>
+          </div>
 
           {/* ================= UNIFIED CTA ACTION GROUP ================= */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             {/* Primary CTA */}
             <Link
               href="/#projects"
-              className="group relative inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_0_25px_var(--cyber-glow-primary)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_var(--cyber-glow-strong)] active:scale-95"
+              className="group relative inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold shadow-[0_0_25px_var(--cyber-glow-primary)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_var(--cyber-glow-strong)] active:scale-95"
+              style={{
+                backgroundColor: "var(--primary)",
+                color: "var(--primary-foreground)",
+              }}
             >
               <span>View Projects</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -6,9 +6,9 @@ import SectionHeading from "@/components/shared/SectionHeading";
 
 export default function About() {
   return (
-    <section id="about" className="relative z-10 scroll-mt-24 max-w-7xl mx-auto py-12 md:py-20 px-4 sm:px-6">
+    <section id="about" className="relative z-10 scroll-mt-24 max-w-7xl mx-auto py-10 md:py-16 px-4 sm:px-6">
       {/* Background Ambient Radial Glow */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(24,206,242,0.1),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(56,189,248,0.08),transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,var(--cyber-glow-primary),transparent_40%),radial-gradient(circle_at_80%_60%,var(--cyber-glow-strong),transparent_45%)]" />
 
       {/* SECTION HEADING */}
       <SectionHeading
@@ -19,7 +19,7 @@ export default function About() {
       />
 
       {/* ================= TOP HERO CARD (INTRO & PHOTO) ================= */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
         {/* Left Bio Column (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           <div className="p-8 rounded-2xl border border-primary/20 bg-card/40 backdrop-blur-xl space-y-5">
@@ -77,73 +77,73 @@ export default function About() {
       </div>
 
       {/* ================= PROFILE & APPROACH CARDS ================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         {/* Profile Card */}
-        <CyberCard className="p-8 space-y-4">
+        <CyberCard className="p-6 sm:p-7 space-y-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary border border-primary/30">
-              <Cpu size={20} />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/20 text-primary border border-primary/30">
+              <Cpu size={18} />
             </div>
             <div>
-              <span className="text-xs font-mono text-primary tracking-widest uppercase">
-                // 01. PROFILE
+              <span className="text-[10px] font-mono text-primary tracking-widest uppercase block">
+                // 01. PHILOSOPHY &amp; IDENTITY
               </span>
-              <h3 className="text-xl font-bold tracking-tight text-foreground">
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
                 Engineering Identity
               </h3>
             </div>
           </div>
 
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            My name is <span className="text-foreground font-semibold">Aman Kumar</span>, an
-            Information Technology undergraduate with a strong focus on real-world problem
-            solving and system-level thinking.
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            My name is <span className="text-foreground font-semibold">Aman Kumar (Dubey)</span>, an
+            Information Technology engineer with a strong focus on real-world problem
+            solving and system-level architecture.
           </p>
 
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             I prioritize consistency, continuous practice, and high standards of execution.
-            My work is guided by deep curiosity about how large-scale web systems and algorithmic
+            My work is guided by deep curiosity about how scalable web systems and algorithmic
             architectures operate under the hood.
           </p>
         </CyberCard>
 
         {/* Approach Card */}
-        <CyberCard className="p-8 space-y-4">
+        <CyberCard className="p-6 sm:p-7 space-y-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary border border-primary/30">
-              <Brain size={20} />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/20 text-primary border border-primary/30">
+              <Brain size={18} />
             </div>
             <div>
-              <span className="text-xs font-mono text-primary tracking-widest uppercase">
-                // 02. APPROACH
+              <span className="text-[10px] font-mono text-primary tracking-widest uppercase block">
+                // 02. ARCHITECTURAL APPROACH
               </span>
-              <h3 className="text-xl font-bold tracking-tight text-foreground">
-                Systems & Human Context
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
+                Systems &amp; Human Context
               </h3>
             </div>
           </div>
 
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            I view technology as part of a larger ecosystem involving human behavior,
-            psychology, and user experience. 
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            I view technology as part of a larger ecosystem involving user psychology,
+            accessibility, and operational resilience.
           </p>
 
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             This balanced perspective enables me to craft interfaces that are immediately
             intuitive while designing backends that remain performant, modular, and effortless
-            to maintain.
+            to maintain over time.
           </p>
         </CyberCard>
       </div>
 
       {/* ================= CORE PILLARS / FOCUS AREAS ================= */}
       <div>
-        <div className="mb-8">
-          <span className="text-xs font-mono text-primary tracking-widest uppercase">
-            // CORE PILLARS
+        <div className="mb-6">
+          <span className="text-[10px] font-mono text-primary tracking-widest uppercase block">
+            // 03. DISCIPLINE &amp; GROWTH
           </span>
-          <h3 className="text-2xl font-bold tracking-tight text-foreground mt-1">
-            Focus Areas & Personal Growth
+          <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mt-0.5">
+            Focus Areas &amp; Personal Discipline
           </h3>
         </div>
 

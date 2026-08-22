@@ -7,7 +7,7 @@ import Contact from "@/components/sections/Contact";
 
 export default function HomePage() {
   return (
-    <div className="w-full flex flex-col space-y-16 md:space-y-28">
+    <div className="w-full flex flex-col space-y-10 md:space-y-16">
       {/* 1. HERO SECTION */}
       <Hero />
 
