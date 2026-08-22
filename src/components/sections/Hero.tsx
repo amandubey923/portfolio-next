@@ -128,15 +128,7 @@ export default function Hero() {
           <div className="pt-6 border-t border-primary/20 grid grid-cols-3 gap-4 max-w-lg">
             <div className="space-y-1">
               <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
-                10+
-              </span>
-              <span className="block text-xs text-muted-foreground">
-                Projects Built
-              </span>
-            </div>
-            <div className="space-y-1">
-              <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
-                100+
+                250+
               </span>
               <span className="block text-xs text-muted-foreground">
                 Days LeetCode
@@ -144,10 +136,18 @@ export default function Hero() {
             </div>
             <div className="space-y-1">
               <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
-                SIH &apos;24
+                500+
               </span>
               <span className="block text-xs text-muted-foreground">
-                National Finalist
+                DSA Problems Solved
+              </span>
+            </div>
+            <div className="space-y-1">
+              <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
+                SIH
+              </span>
+              <span className="block text-xs text-muted-foreground">
+                Participant
               </span>
             </div>
           </div>
