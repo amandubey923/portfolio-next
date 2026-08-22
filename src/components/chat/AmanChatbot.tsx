@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import {
-  Sparkles,
   X,
   Send,
   Loader2,
@@ -10,7 +9,6 @@ import {
   User,
   RotateCcw,
   ExternalLink,
-  MessageSquare,
 } from "lucide-react";
 
 interface ChatMessage {
@@ -216,17 +214,11 @@ export default function AmanChatbot() {
             e.stopPropagation();
           }}
           aria-label={isOpen ? "Close AI Assistant" : "Open Aman AI Portfolio Assistant"}
-          className="group relative flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-card/90 backdrop-blur-xl border border-primary/40 text-foreground shadow-[0_0_25px_var(--cyber-glow-primary)] hover:scale-105 hover:border-primary active:scale-95 transition-all duration-300 cursor-pointer"
+          className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-card/95 backdrop-blur-xl border border-primary/35 text-foreground shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-primary hover:shadow-[0_0_15px_var(--cyber-glow-primary)] active:scale-95 transition-all duration-200 cursor-pointer"
         >
-          {/* Pulsing beacon indicator */}
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
-          </span>
-
-          <Sparkles className="h-4 w-4 text-primary group-hover:rotate-12 transition-transform duration-300" />
-          <span className="text-xs font-mono font-bold tracking-wide">
-            {isOpen ? "Close AI" : "✦ Ask Aman AI"}
+          <Bot className="h-4 w-4 text-primary" />
+          <span className="text-xs font-mono font-semibold tracking-wide">
+            {isOpen ? "Close AI" : "Ask Aman AI"}
           </span>
         </button>
       </div>
