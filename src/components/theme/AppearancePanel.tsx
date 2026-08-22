@@ -19,19 +19,6 @@ export default function AppearancePanel() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, setIsOpen]);
 
-  // Close on Click Outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen, setIsOpen]);
-
   if (!isOpen) return null;
 
   return (
@@ -40,6 +27,8 @@ export default function AppearancePanel() {
       role="dialog"
       aria-label="Appearance & Theme Settings"
       aria-modal="true"
+      onMouseDown={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
       className="absolute right-0 top-full mt-3 w-80 sm:w-96 rounded-3xl p-5 bg-card/95 backdrop-blur-2xl border border-primary/30 shadow-[0_10px_40px_rgba(0,0,0,0.6)] z-50 animate-fadeIn"
     >
       {/* Header */}
@@ -51,9 +40,13 @@ export default function AppearancePanel() {
           </span>
         </div>
         <button
-          onClick={() => setIsOpen(false)}
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(false);
+          }}
           aria-label="Close Appearance Panel"
-          className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition"
+          className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition cursor-pointer"
         >
           <X className="h-4 w-4" />
         </button>
@@ -66,7 +59,12 @@ export default function AppearancePanel() {
         </span>
         <div className="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-background/60 border border-primary/20">
           <button
-            onClick={() => setMode("light")}
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMode("light");
+            }}
+            onMouseDown={(e) => e.stopPropagation()}
             className={`flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
               mode === "light"
                 ? "bg-primary text-primary-foreground shadow-[0_0_12px_var(--cyber-glow-primary)]"
@@ -77,7 +75,12 @@ export default function AppearancePanel() {
             <span>Light</span>
           </button>
           <button
-            onClick={() => setMode("dark")}
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMode("dark");
+            }}
+            onMouseDown={(e) => e.stopPropagation()}
             className={`flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
               mode === "dark"
                 ? "bg-primary text-primary-foreground shadow-[0_0_12px_var(--cyber-glow-primary)]"
@@ -101,14 +104,19 @@ export default function AppearancePanel() {
             return (
               <button
                 key={t.id}
-                onClick={() => setTheme(t.id as ColorTheme)}
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setTheme(t.id as ColorTheme);
+                }}
+                onMouseDown={(e) => e.stopPropagation()}
                 className={`w-full flex items-center justify-between p-2.5 rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
                   isSelected
                     ? "border-primary bg-primary/15 shadow-[0_0_15px_var(--cyber-glow-primary)]"
                     : "border-primary/10 bg-background/40 hover:border-primary/40 hover:bg-primary/5"
                 }`}
               >
-                <div className="flex items-center gap-3 min-w-0">
+                <div className="flex items-center gap-3 min-w-0 pointer-events-none">
                   {/* Color Swatch */}
                   <div
                     className="h-7 w-7 rounded-xl border border-white/20 shadow-sm shrink-0 flex items-center justify-center"
@@ -127,7 +135,7 @@ export default function AppearancePanel() {
                 </div>
 
                 {isSelected && (
-                  <div className="h-5 w-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 ml-2 shadow-[0_0_8px_var(--cyber-glow-primary)]">
+                  <div className="h-5 w-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 ml-2 shadow-[0_0_8px_var(--cyber-glow-primary)] pointer-events-none">
                     <Check className="h-3 w-3 stroke-[3]" />
                   </div>
                 )}

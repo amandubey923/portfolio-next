@@ -1,17 +1,40 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { Palette } from "lucide-react";
 import { useTheme, THEME_LIST } from "./ThemeProvider";
 import AppearancePanel from "./AppearancePanel";
 
 export default function ThemeButton() {
-  const { theme, togglePanel, isOpen } = useTheme();
+  const { theme, togglePanel, isOpen, setIsOpen } = useTheme();
+  const containerRef = useRef<HTMLDivElement>(null);
   const currentConfig = THEME_LIST.find((t) => t.id === theme) || THEME_LIST[0];
 
+  // Robust click outside handler that treats trigger + panel as a single unit
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, setIsOpen]);
+
   return (
-    <div className="relative inline-block">
+    <div ref={containerRef} className="relative inline-block">
       <button
-        onClick={togglePanel}
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          togglePanel();
+        }}
+        onMouseDown={(e) => e.stopPropagation()}
         aria-label="Open Theme and Appearance Settings"
         aria-haspopup="dialog"
         aria-expanded={isOpen}
