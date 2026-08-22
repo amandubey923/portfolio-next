@@ -245,8 +245,8 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* ================= 6-GROUP CAPABILITY MATRIX (NATURAL CONTENT HEIGHT & ITEMS-START) ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+        {/* ================= 6-GROUP UNIFORM CAPABILITY GRID (3 COLS × 2 ROWS EQUAL HEIGHT) ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {visibleGroups.map((group) => {
             const Icon = group.icon;
 
@@ -261,7 +261,7 @@ export default function Skills() {
             return (
               <CyberCard
                 key={group.id}
-                className="p-5 border border-primary/20 bg-card/50 backdrop-blur-xl hover:border-primary/50 transition-all duration-300 shadow-[0_0_25px_rgba(0,0,0,0.25)] self-start"
+                className="p-5 flex flex-col justify-start border border-primary/20 bg-card/50 backdrop-blur-xl hover:border-primary/50 transition-all duration-300 shadow-[0_0_25px_rgba(0,0,0,0.25)] h-full min-h-[300px]"
               >
                 {/* Header */}
                 <div className="flex items-center justify-between mb-2.5">
@@ -287,66 +287,68 @@ export default function Skills() {
                   {group.desc}
                 </p>
 
-                {/* Skills Rendering */}
-                {isGroup6 && toolsSubgroup.length > 0 && csSubgroup.length > 0 ? (
-                  <div className="space-y-3">
-                    {/* Subgroup 1: Tools & Deployment */}
-                    <div>
-                      <span className="text-[10px] font-mono text-primary/80 uppercase block mb-1.5 font-semibold">
-                        // Tools &amp; Deployment
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {toolsSubgroup.map((s, idx) => (
-                          <span
-                            key={idx}
-                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-background/60 border border-border/80 text-xs font-medium text-foreground hover:border-primary/40 transition"
-                          >
-                            <span className="text-primary text-xs">{s.icon}</span>
-                            <span>{s.name}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Subgroup 2: Core Computer Science */}
-                    <div className="pt-2 border-t border-border/50">
-                      <span className="text-[10px] font-mono text-primary/80 uppercase block mb-1.5 font-semibold">
-                        // Core Computer Science
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {csSubgroup.map((s, idx) => (
-                          <span
-                            key={idx}
-                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/25 text-xs font-medium text-primary hover:border-primary/50 transition"
-                          >
-                            <span className="text-xs">{s.icon}</span>
-                            <span>{s.name}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  /* Standard Compact Skill List */
-                  <div className="space-y-1.5">
-                    {group.skills.map((s, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-background/60 border border-border/70 hover:border-primary/40 hover:bg-card/90 transition text-xs"
-                      >
-                        <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-primary flex-shrink-0 text-sm">{s.icon}</span>
-                          <span className="font-semibold text-foreground truncate">{s.name}</span>
+                {/* Skills Container with Flex-1 to maintain internal alignment */}
+                <div className="flex-1 flex flex-col justify-start">
+                  {isGroup6 && toolsSubgroup.length > 0 && csSubgroup.length > 0 ? (
+                    <div className="space-y-3">
+                      {/* Subgroup 1: Tools & Deployment */}
+                      <div>
+                        <span className="text-[10px] font-mono text-primary/80 uppercase block mb-1.5 font-semibold">
+                          // Tools &amp; Deployment
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {toolsSubgroup.map((s, idx) => (
+                            <span
+                              key={idx}
+                              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-background/60 border border-border/80 text-xs font-medium text-foreground hover:border-primary/40 transition"
+                            >
+                              <span className="text-primary text-xs">{s.icon}</span>
+                              <span>{s.name}</span>
+                            </span>
+                          ))}
                         </div>
-                        {s.descriptor && (
-                          <span className="text-[10px] text-muted-foreground truncate ml-2 text-right">
-                            {s.descriptor}
-                          </span>
-                        )}
                       </div>
-                    ))}
-                  </div>
-                )}
+
+                      {/* Subgroup 2: Core Computer Science */}
+                      <div className="pt-2 border-t border-border/50">
+                        <span className="text-[10px] font-mono text-primary/80 uppercase block mb-1.5 font-semibold">
+                          // Core Computer Science
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {csSubgroup.map((s, idx) => (
+                            <span
+                              key={idx}
+                              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/25 text-xs font-medium text-primary hover:border-primary/50 transition"
+                            >
+                              <span className="text-xs">{s.icon}</span>
+                              <span>{s.name}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Standard Uniform Skill List */
+                    <div className="space-y-1.5">
+                      {group.skills.map((s, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-background/60 border border-border/70 hover:border-primary/40 hover:bg-card/90 transition text-xs"
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="text-primary flex-shrink-0 text-sm">{s.icon}</span>
+                            <span className="font-semibold text-foreground truncate">{s.name}</span>
+                          </div>
+                          {s.descriptor && (
+                            <span className="text-[10px] text-muted-foreground truncate ml-2 text-right">
+                              {s.descriptor}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </CyberCard>
             );
           })}
