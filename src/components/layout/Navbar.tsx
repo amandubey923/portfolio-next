@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import SocialDock from "./SocialDock";
 import ThemeButton from "@/components/theme/ThemeButton";
+import AppearancePanel from "@/components/theme/AppearancePanel";
 
 const navLinks = [
   { name: "Home", href: "/#home", id: "home" },
@@ -207,6 +208,9 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
+
+        {/* Top-Level Theme Appearance Popover */}
+        <AppearancePanel />
 
         {/* MOBILE MENU DRAWER */}
         {open && (

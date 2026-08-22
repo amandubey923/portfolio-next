@@ -19,6 +19,32 @@ export default function AppearancePanel() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, setIsOpen]);
 
+  // Clean outside click detection that ignores clicks on any theme trigger button
+  useEffect(() => {
+    const handleOutside = (e: PointerEvent | MouseEvent) => {
+      if (!panelRef.current) return;
+      const path = (e.composedPath && e.composedPath()) || [];
+      const target = e.target as HTMLElement | null;
+
+      // If clicked inside the panel, do not close
+      if (path.includes(panelRef.current) || panelRef.current.contains(target as Node)) {
+        return;
+      }
+
+      // If clicked on any theme trigger button in desktop or mobile navbar, do not close (trigger handles toggle)
+      if (target?.closest?.(".theme-trigger-btn")) {
+        return;
+      }
+
+      setIsOpen(false);
+    };
+
+    if (isOpen) {
+      window.addEventListener("pointerdown", handleOutside);
+    }
+    return () => window.removeEventListener("pointerdown", handleOutside);
+  }, [isOpen, setIsOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -30,7 +56,7 @@ export default function AppearancePanel() {
       onPointerDown={(e) => e.stopPropagation()}
       onMouseDown={(e) => e.stopPropagation()}
       onClick={(e) => e.stopPropagation()}
-      className="absolute right-0 top-full mt-3 w-80 sm:w-96 rounded-3xl p-5 bg-card/95 backdrop-blur-2xl border border-primary/30 shadow-[0_10px_40px_rgba(0,0,0,0.6)] z-50 animate-fadeIn"
+      className="absolute right-4 sm:right-6 lg:right-12 top-[68px] w-80 sm:w-96 rounded-3xl p-5 bg-card/95 backdrop-blur-2xl border border-primary/30 shadow-[0_10px_40px_rgba(0,0,0,0.6)] z-50 animate-fadeIn"
     >
       {/* Header */}
       <div className="flex items-center justify-between pb-3.5 border-b border-primary/15">
@@ -42,10 +68,6 @@ export default function AppearancePanel() {
         </div>
         <button
           type="button"
-          onPointerDown={(e) => {
-            e.stopPropagation();
-            setIsOpen(false);
-          }}
           onClick={(e) => {
             e.stopPropagation();
             setIsOpen(false);
@@ -65,10 +87,6 @@ export default function AppearancePanel() {
         <div className="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-background/60 border border-primary/20">
           <button
             type="button"
-            onPointerDown={(e) => {
-              e.stopPropagation();
-              setMode("light");
-            }}
             onClick={(e) => {
               e.stopPropagation();
               setMode("light");
@@ -84,10 +102,6 @@ export default function AppearancePanel() {
           </button>
           <button
             type="button"
-            onPointerDown={(e) => {
-              e.stopPropagation();
-              setMode("dark");
-            }}
             onClick={(e) => {
               e.stopPropagation();
               setMode("dark");
@@ -116,10 +130,6 @@ export default function AppearancePanel() {
               <button
                 key={t.id}
                 type="button"
-                onPointerDown={(e) => {
-                  e.stopPropagation();
-                  setTheme(t.id as ColorTheme);
-                }}
                 onClick={(e) => {
                   e.stopPropagation();
                   setTheme(t.id as ColorTheme);
