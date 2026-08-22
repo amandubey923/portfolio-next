@@ -10,31 +10,37 @@ export default function ThemeButton() {
   const containerRef = useRef<HTMLDivElement>(null);
   const currentConfig = THEME_LIST.find((t) => t.id === theme) || THEME_LIST[0];
 
-  // Robust click outside handler that treats trigger + panel as a single unit
+  // Robust composed-path outside click handler
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleOutside = (e: PointerEvent) => {
+      if (!containerRef.current) return;
+      const path = e.composedPath ? e.composedPath() : [];
       if (
-        containerRef.current &&
-        !containerRef.current.contains(e.target as Node)
+        path.includes(containerRef.current) ||
+        containerRef.current.contains(e.target as Node)
       ) {
-        setIsOpen(false);
+        return;
       }
+      setIsOpen(false);
     };
+
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      window.addEventListener("pointerdown", handleOutside);
     }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => window.removeEventListener("pointerdown", handleOutside);
   }, [isOpen, setIsOpen]);
 
   return (
     <div ref={containerRef} className="relative inline-block">
       <button
         type="button"
-        onClick={(e) => {
+        onPointerDown={(e) => {
           e.stopPropagation();
           togglePanel();
         }}
-        onMouseDown={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
         aria-label="Open Theme and Appearance Settings"
         aria-haspopup="dialog"
         aria-expanded={isOpen}
@@ -44,11 +50,11 @@ export default function ThemeButton() {
             : "border-primary/30 bg-card/60 text-muted-foreground hover:text-foreground hover:border-primary/60 hover:bg-primary/10"
         }`}
       >
-        <Palette className="h-3.5 w-3.5 text-primary" />
-        <span className="hidden sm:inline">Theme</span>
+        <Palette className="h-3.5 w-3.5 text-primary pointer-events-none" />
+        <span className="hidden sm:inline pointer-events-none">Theme</span>
         {/* Dynamic Color Swatch Dot */}
         <span
-          className="h-2.5 w-2.5 rounded-full border border-white/20 shadow-sm"
+          className="h-2.5 w-2.5 rounded-full border border-white/20 shadow-sm pointer-events-none"
           style={{
             background: `linear-gradient(135deg, ${currentConfig.swatch[0]} 0%, ${currentConfig.swatch[1]} 100%)`,
           }}
