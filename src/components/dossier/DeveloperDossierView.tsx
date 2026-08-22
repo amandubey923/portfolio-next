@@ -22,6 +22,10 @@ import {
   BookOpen,
   Dumbbell,
   Terminal,
+  Layers,
+  Database,
+  Bot,
+  Cpu,
 } from "lucide-react";
 import {
   DiJavascript1,
@@ -29,23 +33,26 @@ import {
   DiNodejs,
   DiMongodb,
   DiGit,
-  DiHtml5,
-  DiCss3,
 } from "react-icons/di";
 import {
-  SiC,
   SiCplusplus,
   SiExpress,
   SiNextdotjs,
   SiTailwindcss,
-  SiMysql,
+  SiPostgresql,
+  SiFirebase,
   SiGithub,
+  SiVercel,
+  SiNetlify,
+  SiRender,
+  SiRailway,
   SiTypescript,
+  SiPrisma,
+  SiClerk,
 } from "react-icons/si";
 
 import {
   PERSONAL_INFO,
-  DOSSIER_SKILLS,
   DOSSIER_EDUCATION,
   DOSSIER_PROJECTS,
   DOSSIER_DSA,
@@ -101,7 +108,7 @@ export default function DeveloperDossierView() {
                     href={PERSONAL_INFO.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-primary text-primary-foreground shadow-[0_0_15px_var(--cyber-glow-primary)] hover:scale-105 active:scale-95 transition"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-[0_0_15px_var(--cyber-glow-primary)] hover:scale-105 active:scale-95 transition"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Resume (PDF)</span>
@@ -109,21 +116,19 @@ export default function DeveloperDossierView() {
                 </div>
               </div>
 
-              {/* Compact Contact Strip */}
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1.5 text-xs text-foreground/80 pt-1 font-mono">
+              {/* Contact Credentials Strip */}
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1.5 pt-1 text-xs text-muted-foreground">
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
                   className="flex items-center gap-1.5 hover:text-primary transition font-medium"
-                  title="Email"
                 >
                   <Mail className="w-3.5 h-3.5 text-primary" />
                   <span>{PERSONAL_INFO.email}</span>
                 </a>
                 <span className="opacity-30 hidden sm:inline">•</span>
                 <a
-                  href={`tel:${PERSONAL_INFO.phone}`}
+                  href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, "")}`}
                   className="flex items-center gap-1.5 hover:text-primary transition font-medium"
-                  title="Phone"
                 >
                   <Phone className="w-3.5 h-3.5 text-primary" />
                   <span>{PERSONAL_INFO.phone}</span>
@@ -198,11 +203,18 @@ export default function DeveloperDossierView() {
                     Languages
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {DOSSIER_SKILLS.languages.map((s, idx) => (
-                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                        <span>{s.name}</span>
-                      </span>
-                    ))}
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiCplusplus className="w-3.5 h-3.5 text-blue-400" />
+                      <span>C++</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <DiJavascript1 className="w-3.5 h-3.5 text-amber-400" />
+                      <span>JavaScript</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiTypescript className="w-3.5 h-3.5 text-sky-400" />
+                      <span>TypeScript</span>
+                    </span>
                   </div>
                 </div>
 
@@ -212,11 +224,18 @@ export default function DeveloperDossierView() {
                     Frontend &amp; UI
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {DOSSIER_SKILLS.frontend.map((s, idx) => (
-                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                        <span>{s.name}</span>
-                      </span>
-                    ))}
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <DiReact className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>React.js</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiNextdotjs className="w-3 h-3 text-foreground" />
+                      <span>Next.js</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiTailwindcss className="w-3 h-3 text-teal-400" />
+                      <span>Tailwind CSS</span>
+                    </span>
                   </div>
                 </div>
 
@@ -226,11 +245,14 @@ export default function DeveloperDossierView() {
                     Backend &amp; APIs
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {DOSSIER_SKILLS.backend.map((s, idx) => (
-                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                        <span>{s.name}</span>
-                      </span>
-                    ))}
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <DiNodejs className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Node.js</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiExpress className="w-3 h-3 text-foreground/80" />
+                      <span>Express.js</span>
+                    </span>
                   </div>
                 </div>
 
@@ -240,11 +262,26 @@ export default function DeveloperDossierView() {
                     Databases &amp; Storage
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {DOSSIER_SKILLS.databases.map((s, idx) => (
-                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                        <span>{s.name}</span>
-                      </span>
-                    ))}
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <DiMongodb className="w-3.5 h-3.5 text-green-500" />
+                      <span>MongoDB</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiPostgresql className="w-3 h-3 text-blue-400" />
+                      <span>PostgreSQL</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiFirebase className="w-3 h-3 text-amber-500" />
+                      <span>Firebase</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <Layers className="w-3 h-3 text-orange-400" />
+                      <span>Convex</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <Database className="w-3 h-3 text-emerald-400" />
+                      <span>Neon (SQL)</span>
+                    </span>
                   </div>
                 </div>
 
@@ -254,11 +291,22 @@ export default function DeveloperDossierView() {
                     AI &amp; Integrations
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {DOSSIER_SKILLS.aiIntegrations.map((s, idx) => (
-                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                        <span>{s.name}</span>
-                      </span>
-                    ))}
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <Sparkles className="w-3 h-3 text-primary" />
+                      <span>Gemini AI</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <Bot className="w-3.5 h-3.5 text-purple-400" />
+                      <span>Vapi AI</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiPrisma className="w-3 h-3 text-foreground" />
+                      <span>Prisma ORM</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                      <SiClerk className="w-3 h-3 text-indigo-400" />
+                      <span>Clerk Auth</span>
+                    </span>
                   </div>
                 </div>
 
@@ -268,25 +316,63 @@ export default function DeveloperDossierView() {
                     Tools &amp; Core CS
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {DOSSIER_SKILLS.tools.map((s, idx) => (
-                      <span key={idx} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
-                        <span>{s.name}</span>
-                      </span>
-                    ))}
-                    {DOSSIER_SKILLS.coreCS.map((s, idx) => (
-                      <span key={idx} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/20 bg-primary/10 text-[11px] font-medium text-primary transition">
-                        <span>{s.name}</span>
-                      </span>
-                    ))}
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <DiGit className="w-3 h-3 text-rose-500" />
+                      <span>Git</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <SiGithub className="w-3 h-3 text-foreground" />
+                      <span>GitHub</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <SiVercel className="w-2.5 h-2.5 text-foreground" />
+                      <span>Vercel</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <SiNetlify className="w-2.5 h-2.5 text-cyan-400" />
+                      <span>Netlify</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <SiRender className="w-2.5 h-2.5 text-emerald-400" />
+                      <span>Render</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <SiRailway className="w-2.5 h-2.5 text-foreground" />
+                      <span>Railway</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <Terminal className="w-3 h-3 text-blue-400" />
+                      <span>VS Code</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                      <Sparkles className="w-3 h-3 text-amber-400" />
+                      <span>Code-Rabbit</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/20 bg-primary/10 text-[11px] font-medium text-primary transition">
+                      <Cpu className="w-3 h-3" />
+                      <span>DSA</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/20 bg-primary/10 text-[11px] font-medium text-primary transition">
+                      <Layers className="w-3 h-3" />
+                      <span>OOP</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/20 bg-primary/10 text-[11px] font-medium text-primary transition">
+                      <Cpu className="w-3 h-3" />
+                      <span>OS</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/20 bg-primary/10 text-[11px] font-medium text-primary transition">
+                      <BookOpen className="w-3 h-3" />
+                      <span>Web Dev</span>
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Languages Proficiency */}
+              {/* Spoken Languages */}
               <div className="space-y-1.5">
                 <h3 className="text-xs sm:text-[13px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5 font-mono">
                   <Languages className="w-3.5 h-3.5 text-primary" />
-                  <span>Languages</span>
+                  <span>Spoken Languages</span>
                 </h3>
                 <div className="flex flex-wrap gap-1.5 text-xs font-medium text-foreground">
                   {DOSSIER_LANGUAGES.map((lang, idx) => (
@@ -306,7 +392,7 @@ export default function DeveloperDossierView() {
               {/* Interests */}
               <div className="space-y-1.5">
                 <h3 className="text-xs sm:text-[13px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5 font-mono">
-                  <Sparkles className="w-3.5 h-3.5 text-primary" />
+                  <Flame className="w-3.5 h-3.5 text-primary" />
                   <span>Interests</span>
                 </h3>
                 <div className="flex flex-wrap gap-1.5 text-xs font-medium text-foreground">
@@ -322,162 +408,153 @@ export default function DeveloperDossierView() {
               </div>
             </div>
 
-            {/* RIGHT COLUMN (7 COLS): EDUCATION + 2 SELECTED PROJECTS + DSA */}
+            {/* RIGHT COLUMN (7 COLS): EDUCATION + SELECTED PROJECTS + DSA PROOF */}
             <div className="md:col-span-7 space-y-5">
               
-              {/* Education Block */}
-              <div className="space-y-1.5">
+              {/* Education */}
+              <div className="space-y-2">
                 <h3 className="text-xs sm:text-[13px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5 font-mono">
                   <GraduationCap className="w-3.5 h-3.5 text-primary" />
                   <span>Education</span>
                 </h3>
-                <div className="p-3.5 rounded-xl border border-primary/20 bg-background/50 space-y-1">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-foreground">
-                        {DOSSIER_EDUCATION.degree}
-                      </h4>
-                      <p className="text-xs text-foreground/70">
-                        {DOSSIER_EDUCATION.institution}
-                      </p>
-                    </div>
-                    <span className="text-[11px] font-bold font-mono px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 shrink-0">
+                <div className="p-3 sm:p-4 rounded-xl border border-primary/20 bg-background/60 space-y-1.5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <h4 className="text-sm font-bold text-foreground">
+                      {DOSSIER_EDUCATION.degree}
+                    </h4>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-primary/15 text-primary border border-primary/30 w-fit">
                       CGPA: {DOSSIER_EDUCATION.cgpa}
                     </span>
                   </div>
-                  <div className="text-[11px] text-foreground/65 flex items-center justify-between pt-0.5 font-mono">
+                  <p className="text-xs text-foreground/80">
+                    {DOSSIER_EDUCATION.institution}
+                  </p>
+                  <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-1 border-t border-border/50 font-mono">
                     <span>{DOSSIER_EDUCATION.duration}</span>
                     <span>Coursework: {DOSSIER_EDUCATION.coursework}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Selected Projects (EXACTLY TWO) */}
+              {/* Selected Projects (Strictly 2 Featured) */}
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xs sm:text-[13px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5 font-mono">
                     <FolderGit2 className="w-3.5 h-3.5 text-primary" />
                     <span>Selected Projects</span>
                   </h3>
-                  <span className="text-[11px] text-foreground/60 font-mono">
+                  <span className="text-[10px] font-mono text-muted-foreground">
                     2 Featured Builds
                   </span>
                 </div>
 
-                {DOSSIER_PROJECTS.map((proj, pIdx) => (
-                  <div
-                    key={pIdx}
-                    className="p-3.5 sm:p-4 rounded-2xl border border-primary/25 bg-background/50 space-y-2 shadow-sm transition hover:border-primary/50"
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[9px] font-bold font-mono px-1.5 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 uppercase">
-                            {proj.badge}
+                <div className="space-y-3">
+                  {DOSSIER_PROJECTS.map((project, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 sm:p-4 rounded-xl border border-primary/20 bg-background/60 space-y-2 hover:border-primary/40 transition"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/25">
+                            {project.badge}
                           </span>
-                          <h4 className="text-sm sm:text-base font-bold text-foreground">
-                            {proj.name}
+                          <h4 className="text-sm font-bold text-foreground">
+                            {project.name}
                           </h4>
                         </div>
-                        <p className="text-xs font-semibold text-primary mt-0.5">
-                          {proj.tagline}
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        {proj.liveUrl && (
+                        <div className="flex items-center gap-2">
                           <a
-                            href={proj.liveUrl}
+                            href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-primary text-primary-foreground text-[11px] font-bold shadow-sm hover:scale-105 transition"
-                            title="Live Demo"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-primary/20 border border-primary/40 text-primary text-[11px] font-semibold hover:bg-primary hover:text-primary-foreground transition"
                           >
-                            <ExternalLink className="w-3 h-3" />
+                            <Globe className="w-3 h-3" />
                             <span>Live</span>
                           </a>
-                        )}
-                        {proj.githubUrl && (
                           <a
-                            href={proj.githubUrl}
+                            href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-border bg-card/60 text-[11px] font-semibold text-foreground hover:border-primary hover:text-primary transition"
-                            title="Source Code"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-border bg-card/60 text-[11px] font-semibold text-muted-foreground hover:text-foreground hover:border-primary/40 transition"
                           >
-                            <Github className="w-3 h-3 text-primary" />
+                            <Github className="w-3 h-3" />
                             <span>GitHub</span>
                           </a>
-                        )}
+                        </div>
+                      </div>
+
+                      <p className="text-xs font-medium text-primary">
+                        {project.tagline}
+                      </p>
+
+                      <ul className="space-y-1 text-xs text-foreground/80">
+                        {project.highlights.map((item, hIdx) => (
+                          <li key={hIdx} className="flex items-start gap-1.5 leading-relaxed">
+                            <CheckCircle2 className="w-3 h-3 text-primary shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex flex-wrap gap-1 pt-1.5">
+                        {project.tech.map((t, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="text-[10px] font-mono px-2 py-0.5 rounded bg-card/80 border border-border/80 text-muted-foreground"
+                          >
+                            {t}
+                          </span>
+                        ))}
                       </div>
                     </div>
-
-                    <ul className="space-y-1 text-xs sm:text-[13px] text-foreground/85 leading-relaxed">
-                      {proj.highlights.map((h, hIdx) => (
-                        <li key={hIdx} className="flex items-start gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap gap-1 pt-0.5">
-                      {proj.tech.map((t, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-2 py-0.5 rounded border border-primary/20 bg-background/60 text-[11px] text-foreground/75 font-mono"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
-              {/* Problem Solving / DSA */}
-              <div className="space-y-1.5">
+              {/* DSA Problem-Solving Proof */}
+              <div className="space-y-2">
                 <h3 className="text-xs sm:text-[13px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5 font-mono">
-                  <Flame className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Problem Solving / DSA</span>
+                  <Flame className="w-3.5 h-3.5 text-primary" />
+                  <span>DSA &amp; Problem Solving</span>
                 </h3>
-                <div className="p-3.5 rounded-xl border border-primary/20 bg-background/50 flex items-center justify-between gap-4">
-                  <div className="space-y-0.5">
-                    <span className="text-base sm:text-lg font-black text-foreground">
+                <div className="p-3.5 sm:p-4 rounded-xl border border-primary/20 bg-background/60 space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <span className="text-sm font-bold text-foreground">
                       {DOSSIER_DSA.problemsSolved}
                     </span>
-                    <p className="text-xs text-foreground/70 font-mono">
+                    <span className="text-xs text-muted-foreground font-mono">
                       {DOSSIER_DSA.streak}
-                    </p>
+                    </span>
                   </div>
-
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3 pt-1 border-t border-border/50 text-xs">
                     <a
                       href={DOSSIER_DSA.leetcodeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-2.5 py-1 rounded-lg border border-primary/30 bg-background/80 text-xs font-bold text-primary hover:border-primary hover:bg-primary/10 transition"
+                      className="inline-flex items-center gap-1 text-primary hover:underline font-mono"
                     >
-                      LeetCode
+                      <ExternalLink className="w-3 h-3" />
+                      <span>LeetCode Profile</span>
                     </a>
+                    <span className="opacity-30">•</span>
                     <a
                       href={DOSSIER_DSA.gfgUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-2.5 py-1 rounded-lg border border-primary/30 bg-background/80 text-xs font-bold text-primary hover:border-primary hover:bg-primary/10 transition"
+                      className="inline-flex items-center gap-1 text-primary hover:underline font-mono"
                     >
-                      GFG
+                      <ExternalLink className="w-3 h-3" />
+                      <span>GeeksforGeeks Profile</span>
                     </a>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </div>
   );
 }
-
