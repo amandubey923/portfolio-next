@@ -128,18 +128,18 @@ export default function Hero() {
           <div className="pt-6 border-t border-primary/20 grid grid-cols-3 gap-4 max-w-lg">
             <div className="space-y-1">
               <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
-                10+
+                3+
               </span>
               <span className="block text-xs text-muted-foreground">
-                Projects Built
+                Deployed AI Full-Stack Projects
               </span>
             </div>
             <div className="space-y-1">
               <span className="block text-2xl font-bold font-mono text-primary drop-shadow-[0_0_8px_var(--cyber-glow-primary)]">
-                100+
+                500+
               </span>
               <span className="block text-xs text-muted-foreground">
-                Days LeetCode
+                DSA Problems Solved
               </span>
             </div>
             <div className="space-y-1">
@@ -147,7 +147,7 @@ export default function Hero() {
                 SIH &apos;24
               </span>
               <span className="block text-xs text-muted-foreground">
-                National Finalist
+                Hackathon Participant
               </span>
             </div>
           </div>

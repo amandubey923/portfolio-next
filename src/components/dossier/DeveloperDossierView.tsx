@@ -45,6 +45,7 @@ import {
 
 import {
   PERSONAL_INFO,
+  DOSSIER_SKILLS,
   DOSSIER_EDUCATION,
   DOSSIER_PROJECTS,
   DOSSIER_DSA,
@@ -185,7 +186,7 @@ export default function DeveloperDossierView() {
               </div>
 
               {/* Technical Skills Matrix */}
-              <div className="space-y-2.5">
+              <div className="space-y-3">
                 <h3 className="text-xs sm:text-[13px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5 font-mono">
                   <Code2 className="w-3.5 h-3.5 text-primary" />
                   <span>Technical Skills</span>
@@ -197,109 +198,86 @@ export default function DeveloperDossierView() {
                     Languages
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <SiC className="w-3 h-3 text-blue-400" />
-                      <span>C / C++</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <DiJavascript1 className="w-3.5 h-3.5 text-amber-400" />
-                      <span>JavaScript (ES6+)</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <SiTypescript className="w-3 h-3 text-sky-400" />
-                      <span>TypeScript</span>
-                    </span>
+                    {DOSSIER_SKILLS.languages.map((s, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                        <span>{s.name}</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 {/* Frontend */}
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold text-foreground/60 uppercase block font-mono">
-                    Frontend
+                    Frontend &amp; UI
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <DiReact className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>React.js</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <SiNextdotjs className="w-3 h-3 text-foreground" />
-                      <span>Next.js (App Router)</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <SiTailwindcss className="w-3 h-3 text-teal-400" />
-                      <span>Tailwind CSS</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <DiHtml5 className="w-3.5 h-3.5 text-orange-400" />
-                      <span>HTML5</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <DiCss3 className="w-3.5 h-3.5 text-blue-400" />
-                      <span>CSS3</span>
-                    </span>
+                    {DOSSIER_SKILLS.frontend.map((s, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                        <span>{s.name}</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 {/* Backend */}
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold text-foreground/60 uppercase block font-mono">
-                    Backend
+                    Backend &amp; APIs
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <DiNodejs className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>Node.js</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <SiExpress className="w-3 h-3 text-foreground/80" />
-                      <span>Express.js</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <span>REST APIs</span>
-                    </span>
+                    {DOSSIER_SKILLS.backend.map((s, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                        <span>{s.name}</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 {/* Databases */}
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold text-foreground/60 uppercase block font-mono">
-                    Databases
+                    Databases &amp; Storage
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <DiMongodb className="w-3.5 h-3.5 text-green-500" />
-                      <span>MongoDB</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <SiMysql className="w-3.5 h-3.5 text-sky-400" />
-                      <span>SQL / MySQL</span>
-                    </span>
+                    {DOSSIER_SKILLS.databases.map((s, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                        <span>{s.name}</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* AI & Tools */}
+                {/* AI & Integrations */}
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold text-foreground/60 uppercase block font-mono">
-                    AI &amp; Tools
+                    AI &amp; Integrations
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <Sparkles className="w-3 h-3 text-primary" />
-                      <span>Gemini AI</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <DiGit className="w-3.5 h-3.5 text-rose-500" />
-                      <span>Git</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <SiGithub className="w-3 h-3 text-foreground" />
-                      <span>GitHub</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
-                      <Terminal className="w-3 h-3 text-blue-400" />
-                      <span>VS Code</span>
-                    </span>
+                    {DOSSIER_SKILLS.aiIntegrations.map((s, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-2.5 py-0.8 rounded-lg border border-primary/20 bg-background/50 text-xs font-medium text-foreground hover:border-primary/50 transition">
+                        <span>{s.name}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tools & Core CS */}
+                <div className="space-y-1">
+                  <span className="text-[10px] font-bold text-foreground/60 uppercase block font-mono">
+                    Tools &amp; Core CS
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {DOSSIER_SKILLS.tools.map((s, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/15 bg-background/40 text-[11px] font-medium text-muted-foreground hover:text-foreground transition">
+                        <span>{s.name}</span>
+                      </span>
+                    ))}
+                    {DOSSIER_SKILLS.coreCS.map((s, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border border-primary/20 bg-primary/10 text-[11px] font-medium text-primary transition">
+                        <span>{s.name}</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

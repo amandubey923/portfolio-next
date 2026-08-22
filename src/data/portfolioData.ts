@@ -15,31 +15,47 @@ export const PERSONAL_INFO = {
 
 export const DOSSIER_SKILLS = {
   languages: [
-    { name: "C / C++", color: "#00599C" },
-    { name: "JavaScript (ES6+)", color: "#F7DF1E" },
+    { name: "C++", color: "#00599C" },
+    { name: "JavaScript", color: "#F7DF1E" },
     { name: "TypeScript", color: "#3178C6" },
   ],
   frontend: [
     { name: "React.js", color: "#61DAFB" },
-    { name: "Next.js (App Router)", color: "#FFFFFF" },
+    { name: "Next.js", color: "#FFFFFF" },
     { name: "Tailwind CSS", color: "#06B6D4" },
-    { name: "HTML5", color: "#E34F26" },
-    { name: "CSS3", color: "#1572B6" },
   ],
   backend: [
     { name: "Node.js", color: "#339933" },
     { name: "Express.js", color: "#FFFFFF" },
-    { name: "REST APIs", color: "#18cef2" },
   ],
   databases: [
     { name: "MongoDB", color: "#47A248" },
-    { name: "SQL / PostgreSQL", color: "#336791" },
+    { name: "PostgreSQL", color: "#336791" },
+    { name: "Firebase", color: "#FFA611" },
+    { name: "Convex", color: "#F05032" },
+    { name: "Neon (SQL)", color: "#00E599" },
+  ],
+  aiIntegrations: [
+    { name: "Gemini AI", color: "#18cef2" },
+    { name: "Vapi AI", color: "#A855F7" },
+    { name: "Prisma ORM", color: "#2D3748" },
+    { name: "Clerk Auth", color: "#6C47FF" },
   ],
   tools: [
-    { name: "Gemini AI", color: "#18cef2" },
     { name: "Git", color: "#F05032" },
     { name: "GitHub", color: "#FFFFFF" },
+    { name: "Vercel", color: "#FFFFFF" },
+    { name: "Netlify", color: "#00C7B7" },
+    { name: "Render", color: "#46E3B7" },
+    { name: "Railway", color: "#FFFFFF" },
     { name: "VS Code", color: "#007ACC" },
+    { name: "Code-Rabbit", color: "#FF5722" },
+  ],
+  coreCS: [
+    { name: "Data Structures & Algorithms", color: "#18cef2" },
+    { name: "OOP", color: "#EAB308" },
+    { name: "Operating Systems", color: "#10B981" },
+    { name: "Web Development", color: "#F97316" },
   ],
 };
 
@@ -68,7 +84,7 @@ export const DOSSIER_PROJECTS = [
     name: "Reader's HUB",
     tagline: "Next-Gen Digital Library & Reading Ecosystem Platform",
     liveUrl: "https://reader-hub-library.vercel.app/",
-    githubUrl: "https://github.com/amandubey923/ReadersHUB-A-Digital-Library-Platform",
+    githubUrl: "https://github.com/amandubey923/library-optimized",
     highlights: [
       "Engineered high-performance client-side catalog indexing and instant title/author search.",
       "Implemented interactive multi-theme customizer engine with local persistence.",
@@ -97,4 +113,3 @@ export const DOSSIER_DSA = {
   leetcodeUrl: "https://leetcode.com/u/aman_dubey923",
   gfgUrl: "https://www.geeksforgeeks.org/profile/kumaramag0dt",
 };
-
