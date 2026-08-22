@@ -127,18 +127,18 @@ const capabilityGroups: CapabilityGroup[] = [
     desc: "Developer tooling, cloud infrastructure, and computer science foundations.",
     icon: Wrench,
     skills: [
-      { name: "Git", descriptor: "Distributed version control", subgroup: "Tools & Platforms", icon: <DiGit /> },
-      { name: "GitHub", descriptor: "Code repositories & collaboration", subgroup: "Tools & Platforms", icon: <SiGithub /> },
-      { name: "Vercel", descriptor: "Serverless edge deployments", subgroup: "Tools & Platforms", icon: <SiVercel /> },
-      { name: "Netlify", descriptor: "Automated web hosting & CI/CD", subgroup: "Tools & Platforms", icon: <SiNetlify /> },
-      { name: "Render", descriptor: "Cloud web services & apps", subgroup: "Tools & Platforms", icon: <SiRender /> },
-      { name: "Railway", descriptor: "Infrastructure & backend hosting", subgroup: "Tools & Platforms", icon: <SiRailway /> },
-      { name: "VS Code", descriptor: "Integrated code environment", subgroup: "Tools & Platforms", icon: <Code2 size={14} /> },
-      { name: "Code-Rabbit", descriptor: "AI-assisted code reviews", subgroup: "Tools & Platforms", icon: <Sparkles size={14} /> },
-      { name: "Data Structures & Algorithms", descriptor: "Algorithmic problem solving", subgroup: "Core Computer Science", icon: <Cpu size={14} /> },
-      { name: "OOP", descriptor: "Object-oriented design patterns", subgroup: "Core Computer Science", icon: <Layers size={14} /> },
-      { name: "Operating Systems", descriptor: "Process & memory concepts", subgroup: "Core Computer Science", icon: <Cpu size={14} /> },
-      { name: "Web Development", descriptor: "Client-server architecture", subgroup: "Core Computer Science", icon: <BookOpen size={14} /> },
+      { name: "Git", descriptor: "Version control", subgroup: "Tools & Deployment", icon: <DiGit /> },
+      { name: "GitHub", descriptor: "Code collaboration", subgroup: "Tools & Deployment", icon: <SiGithub /> },
+      { name: "Vercel", descriptor: "Serverless edge", subgroup: "Tools & Deployment", icon: <SiVercel /> },
+      { name: "Netlify", descriptor: "CI/CD web hosting", subgroup: "Tools & Deployment", icon: <SiNetlify /> },
+      { name: "Render", descriptor: "Cloud services", subgroup: "Tools & Deployment", icon: <SiRender /> },
+      { name: "Railway", descriptor: "Backend hosting", subgroup: "Tools & Deployment", icon: <SiRailway /> },
+      { name: "VS Code", descriptor: "Code environment", subgroup: "Tools & Deployment", icon: <Code2 size={14} /> },
+      { name: "Code-Rabbit", descriptor: "AI code reviews", subgroup: "Tools & Deployment", icon: <Sparkles size={14} /> },
+      { name: "DSA", descriptor: "Algorithmic problem solving", subgroup: "Core CS", icon: <Cpu size={14} /> },
+      { name: "OOP", descriptor: "Object-oriented design", subgroup: "Core CS", icon: <Layers size={14} /> },
+      { name: "Operating Systems", descriptor: "Process & memory concepts", subgroup: "Core CS", icon: <Cpu size={14} /> },
+      { name: "Web Development", descriptor: "Client-server architecture", subgroup: "Core CS", icon: <BookOpen size={14} /> },
     ],
   },
 ];
@@ -204,7 +204,7 @@ export default function Skills() {
         />
 
         {/* ================= SEARCH & CATEGORY CONTROLS ================= */}
-        <div className="mt-8 mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        <div className="mt-8 mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
           {/* Live Search Input */}
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -213,7 +213,7 @@ export default function Skills() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search skill (e.g. MongoDB, TypeScript, C++, Gemini)..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-primary/25 bg-card/60 backdrop-blur-xl text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:bg-background focus:outline-none transition shadow-sm"
+              className="w-full pl-10 pr-4 py-2 rounded-xl border border-primary/25 bg-card/60 backdrop-blur-xl text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:bg-background focus:outline-none transition shadow-sm"
             />
             {searchQuery && (
               <button
@@ -233,7 +233,7 @@ export default function Skills() {
                 key={f.id}
                 type="button"
                 onClick={() => setActiveFilter(f.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                   activeFilter === f.id
                     ? "bg-primary text-primary-foreground font-bold shadow-[0_0_12px_var(--cyber-glow-primary)]"
                     : "border border-border bg-card/40 text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-card/80"
@@ -245,132 +245,115 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* ================= 6-GROUP CAPABILITY MATRIX (3 COLS ON DESKTOP) ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ================= 6-GROUP CAPABILITY MATRIX (NATURAL CONTENT HEIGHT & ITEMS-START) ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
           {visibleGroups.map((group) => {
             const Icon = group.icon;
 
-            // Check if group 6 has subgroups
             const isGroup6 = group.id === "tools";
             const toolsSubgroup = isGroup6
-              ? group.skills.filter((s) => s.subgroup === "Tools & Platforms")
+              ? group.skills.filter((s) => s.subgroup === "Tools & Deployment")
               : [];
             const csSubgroup = isGroup6
-              ? group.skills.filter((s) => s.subgroup === "Core Computer Science")
+              ? group.skills.filter((s) => s.subgroup === "Core CS")
               : [];
 
             return (
               <CyberCard
                 key={group.id}
-                className="flex flex-col justify-between p-6 h-full border border-primary/20 bg-card/50 backdrop-blur-xl hover:border-primary/50 transition-all duration-300 shadow-[0_0_30px_rgba(0,0,0,0.3)]"
+                className="p-5 border border-primary/20 bg-card/50 backdrop-blur-xl hover:border-primary/50 transition-all duration-300 shadow-[0_0_25px_rgba(0,0,0,0.25)] self-start"
               >
-                <div>
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="h-9 w-9 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary shadow-[0_0_12px_var(--cyber-glow-primary)]">
-                        <Icon size={18} />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-mono text-primary tracking-widest block uppercase">
-                          {group.tag}
-                        </span>
-                        <h3 className="text-sm font-bold text-foreground">
-                          {group.title}
-                        </h3>
-                      </div>
+                {/* Header */}
+                <div className="flex items-center justify-between mb-2.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-8 w-8 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center text-primary shadow-[0_0_10px_var(--cyber-glow-primary)]">
+                      <Icon size={16} />
                     </div>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono text-primary bg-primary/10 border border-primary/20">
-                      {group.skills.length} Skills
-                    </span>
+                    <div>
+                      <span className="text-[10px] font-mono text-primary tracking-widest block uppercase">
+                        {group.tag}
+                      </span>
+                      <h3 className="text-sm font-bold text-foreground leading-tight">
+                        {group.title}
+                      </h3>
+                    </div>
                   </div>
-
-                  <p className="text-xs text-muted-foreground mb-5 leading-relaxed">
-                    {group.desc}
-                  </p>
-
-                  {/* Skills Rendering */}
-                  {isGroup6 && toolsSubgroup.length > 0 && csSubgroup.length > 0 ? (
-                    <div className="space-y-4">
-                      {/* Subgroup 1: Tools & Platforms */}
-                      <div>
-                        <span className="text-[10px] font-mono text-primary/80 uppercase block mb-2 font-semibold">
-                          // Tools & Cloud Platforms
-                        </span>
-                        <div className="space-y-1.5">
-                          {toolsSubgroup.map((s, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-center justify-between p-2 rounded-lg bg-background/60 border border-border/70 hover:border-primary/40 hover:bg-card/90 transition text-xs"
-                            >
-                              <div className="flex items-center gap-2 min-w-0">
-                                <span className="text-primary flex-shrink-0 text-sm">{s.icon}</span>
-                                <span className="font-semibold text-foreground truncate">{s.name}</span>
-                              </div>
-                              {s.descriptor && (
-                                <span className="text-[10px] text-muted-foreground truncate ml-2 text-right">
-                                  {s.descriptor}
-                                </span>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Subgroup 2: Core Computer Science */}
-                      <div className="pt-2 border-t border-border/50">
-                        <span className="text-[10px] font-mono text-primary/80 uppercase block mb-2 font-semibold">
-                          // Core Computer Science
-                        </span>
-                        <div className="space-y-1.5">
-                          {csSubgroup.map((s, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-center justify-between p-2 rounded-lg bg-background/60 border border-border/70 hover:border-primary/40 hover:bg-card/90 transition text-xs"
-                            >
-                              <div className="flex items-center gap-2 min-w-0">
-                                <span className="text-primary flex-shrink-0 text-sm">{s.icon}</span>
-                                <span className="font-semibold text-foreground truncate">{s.name}</span>
-                              </div>
-                              {s.descriptor && (
-                                <span className="text-[10px] text-muted-foreground truncate ml-2 text-right">
-                                  {s.descriptor}
-                                </span>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    /* Normal Skill List */
-                    <div className="space-y-2">
-                      {group.skills.map((s, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center justify-between p-2.5 rounded-lg bg-background/60 border border-border/70 hover:border-primary/40 hover:bg-card/90 transition text-xs"
-                        >
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <span className="text-primary flex-shrink-0 text-sm">{s.icon}</span>
-                            <span className="font-semibold text-foreground truncate">{s.name}</span>
-                          </div>
-                          {s.descriptor && (
-                            <span className="text-[10px] text-muted-foreground truncate ml-2 text-right">
-                              {s.descriptor}
-                            </span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono text-primary bg-primary/10 border border-primary/20">
+                    {group.skills.length}
+                  </span>
                 </div>
+
+                <p className="text-xs text-muted-foreground mb-3.5 leading-relaxed">
+                  {group.desc}
+                </p>
+
+                {/* Skills Rendering */}
+                {isGroup6 && toolsSubgroup.length > 0 && csSubgroup.length > 0 ? (
+                  <div className="space-y-3">
+                    {/* Subgroup 1: Tools & Deployment */}
+                    <div>
+                      <span className="text-[10px] font-mono text-primary/80 uppercase block mb-1.5 font-semibold">
+                        // Tools &amp; Deployment
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {toolsSubgroup.map((s, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-background/60 border border-border/80 text-xs font-medium text-foreground hover:border-primary/40 transition"
+                          >
+                            <span className="text-primary text-xs">{s.icon}</span>
+                            <span>{s.name}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Subgroup 2: Core Computer Science */}
+                    <div className="pt-2 border-t border-border/50">
+                      <span className="text-[10px] font-mono text-primary/80 uppercase block mb-1.5 font-semibold">
+                        // Core Computer Science
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {csSubgroup.map((s, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/25 text-xs font-medium text-primary hover:border-primary/50 transition"
+                          >
+                            <span className="text-xs">{s.icon}</span>
+                            <span>{s.name}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Standard Compact Skill List */
+                  <div className="space-y-1.5">
+                    {group.skills.map((s, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-background/60 border border-border/70 hover:border-primary/40 hover:bg-card/90 transition text-xs"
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-primary flex-shrink-0 text-sm">{s.icon}</span>
+                          <span className="font-semibold text-foreground truncate">{s.name}</span>
+                        </div>
+                        {s.descriptor && (
+                          <span className="text-[10px] text-muted-foreground truncate ml-2 text-right">
+                            {s.descriptor}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </CyberCard>
             );
           })}
         </div>
 
         {visibleGroups.length === 0 && (
-          <div className="text-center py-16 rounded-2xl border border-primary/20 bg-card/40">
+          <div className="text-center py-12 rounded-2xl border border-primary/20 bg-card/40">
             <p className="text-sm text-muted-foreground">
               No technical capabilities found matching &quot;{searchQuery}&quot;.
             </p>
@@ -380,7 +363,7 @@ export default function Skills() {
                 setSearchQuery("");
                 setActiveFilter("all");
               }}
-              className="mt-3 text-xs font-mono text-primary hover:underline cursor-pointer"
+              className="mt-2 text-xs font-mono text-primary hover:underline cursor-pointer"
             >
               Reset Search & Filters
             </button>
