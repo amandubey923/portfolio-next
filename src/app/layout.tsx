@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import AmanChatbot from "@/components/chat/AmanChatbot";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amandubey.vercel.app"),
@@ -88,6 +89,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <AmanChatbot />
         </ThemeProvider>
       </body>
     </html>
