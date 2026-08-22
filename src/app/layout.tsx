@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AmanChatbot from "@/components/chat/AmanChatbot";
+import CustomCursor from "@/components/cursor/CustomCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amandubey.vercel.app"),
@@ -90,6 +91,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <AmanChatbot />
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>
