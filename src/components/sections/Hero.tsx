@@ -37,8 +37,10 @@ export default function Hero() {
   return (
     <section id="home" className="relative z-10 scroll-mt-28 min-h-[calc(100vh-90px)] flex flex-col justify-center py-8 md:py-14">
       {/* Ambient Glows */}
-      <div className="absolute -top-32 -left-32 w-125 h-125 bg-primary/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-125 h-125 bg-primary/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute -top-16 -left-16 sm:-top-32 sm:-left-32 w-64 h-64 sm:w-125 sm:h-125 bg-primary/10 blur-[100px] sm:blur-[130px] rounded-full" />
+        <div className="absolute bottom-0 right-0 sm:-bottom-32 sm:-right-32 w-64 h-64 sm:w-125 sm:h-125 bg-primary/10 blur-[100px] sm:blur-[130px] rounded-full" />
+      </div>
 
       {/* MAIN GRID */}
       <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">

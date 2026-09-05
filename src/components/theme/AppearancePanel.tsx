@@ -56,7 +56,7 @@ export default function AppearancePanel() {
       onPointerDown={(e) => e.stopPropagation()}
       onMouseDown={(e) => e.stopPropagation()}
       onClick={(e) => e.stopPropagation()}
-      className="absolute right-4 sm:right-6 lg:right-12 top-[68px] w-80 sm:w-96 rounded-3xl p-5 bg-card/95 backdrop-blur-2xl border border-primary/30 shadow-[0_10px_40px_rgba(0,0,0,0.6)] z-50 animate-fadeIn"
+      className="absolute right-4 sm:right-6 lg:right-12 top-[68px] w-[calc(100vw-32px)] max-w-sm sm:w-96 rounded-3xl p-5 bg-card/95 backdrop-blur-2xl border border-primary/30 shadow-[0_10px_40px_rgba(0,0,0,0.6)] z-50 animate-fadeIn"
     >
       {/* Header */}
       <div className="flex items-center justify-between pb-3.5 border-b border-primary/15">

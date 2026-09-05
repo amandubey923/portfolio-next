@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
@@ -6,6 +6,12 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AmanChatbot from "@/components/chat/AmanChatbot";
 import CustomCursor from "@/components/cursor/CustomCursor";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amandubey.vercel.app"),

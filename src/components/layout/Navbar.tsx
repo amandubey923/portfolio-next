@@ -96,9 +96,37 @@ export default function Navbar() {
     } else {
       document.body.style.overflow = "unset";
     }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
+
+  // Close mobile menu on route change, desktop resize, or Escape key
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+      }
+    };
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
   }, [open]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setOpen(false);
     if (pathname === "/" && href.startsWith("/#")) {
       e.preventDefault();
       const targetId = href.replace("/#", "");
@@ -108,7 +136,6 @@ export default function Navbar() {
         setActiveSection(targetId);
         window.history.pushState(null, "", href);
       }
-      setOpen(false);
     }
   };
 
@@ -211,99 +238,99 @@ export default function Navbar() {
 
         {/* Top-Level Theme Appearance Popover */}
         <AppearancePanel />
+      </header>
 
-        {/* MOBILE MENU DRAWER */}
-        {open && (
-          <div className="lg:hidden fixed inset-0 top-[65px] z-40 bg-background/95 backdrop-blur-2xl border-t border-primary/20 flex flex-col justify-between p-6 animate-fadeIn overflow-y-auto">
-            {/* Links List */}
-            <div className="flex flex-col gap-2">
-              <span className="text-xs font-mono tracking-widest text-primary/70 mb-2">
-                // NAVIGATION
-              </span>
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
+      {/* MOBILE MENU DRAWER */}
+      {open && (
+        <div className="lg:hidden fixed inset-x-0 top-[65px] bottom-0 z-50 bg-background/95 backdrop-blur-2xl border-t border-primary/20 flex flex-col justify-between p-6 pb-10 animate-fadeIn overflow-y-auto h-[calc(100dvh-65px)]">
+          {/* Links List */}
+          <div className="flex flex-col gap-2">
+            <span className="text-xs font-mono tracking-widest text-primary/70 mb-2">
+              // NAVIGATION
+            </span>
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`flex items-center justify-between py-3 px-4 rounded-xl text-base transition-all duration-200 ${
+                    isActive
+                      ? "bg-primary/15 text-primary font-semibold border border-primary/30 shadow-[0_0_15px_var(--cyber-glow-primary)]"
+                      : "text-muted-foreground hover:bg-card/40 hover:text-foreground"
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {isActive && (
+                    <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_var(--cyber-glow-primary)]" />
+                  )}
+                </Link>
+              );
+            })}
+
+            <Link
+              href="/resume/Resume2.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-4 flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold shadow-[0_0_25px_var(--cyber-glow-primary)] transition hover:opacity-90 active:scale-95"
+              style={{
+                backgroundColor: "var(--primary)",
+                color: "var(--primary-foreground)",
+              }}
+            >
+              <FileText size={18} />
+              <span>View &amp; Download Resume</span>
+            </Link>
+          </div>
+
+          {/* Mobile Social Connections */}
+          <div className="pt-6 border-t border-border mt-6">
+            <span className="block text-xs font-mono tracking-widest text-primary/70 mb-4">
+              // CONNECT
+            </span>
+            <div className="grid grid-cols-4 gap-3">
+              {[
+                {
+                  href: "https://github.com/amandubey923",
+                  icon: Github,
+                  label: "GitHub",
+                },
+                {
+                  href: "https://www.linkedin.com/in/aman-kr-dubey",
+                  icon: Linkedin,
+                  label: "LinkedIn",
+                },
+                {
+                  href: "https://www.instagram.com/",
+                  icon: Instagram,
+                  label: "Instagram",
+                },
+                {
+                  href: "mailto:kumaraman19137@gmail.com",
+                  icon: Mail,
+                  label: "Email",
+                },
+              ].map((item, i) => {
+                const Icon = item.icon;
                 return (
                   <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`flex items-center justify-between py-3 px-4 rounded-xl text-base transition-all duration-200 ${
-                      isActive
-                        ? "bg-primary/15 text-primary font-semibold border border-primary/30 shadow-[0_0_15px_var(--cyber-glow-primary)]"
-                        : "text-muted-foreground hover:bg-card/40 hover:text-foreground"
-                    }`}
+                    key={i}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl border border-primary/20 bg-card/60 text-muted-foreground hover:text-primary hover:border-primary/50 transition"
                   >
-                    <span>{link.name}</span>
-                    {isActive && (
-                      <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_var(--cyber-glow-primary)]" />
-                    )}
+                    <Icon size={20} />
+                    <span className="text-[10px] font-mono">{item.label}</span>
                   </Link>
                 );
               })}
-
-              <Link
-                href="/resume/Resume2.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-                className="mt-4 flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold shadow-[0_0_25px_var(--cyber-glow-primary)] transition hover:opacity-90 active:scale-95"
-                style={{
-                  backgroundColor: "var(--primary)",
-                  color: "var(--primary-foreground)",
-                }}
-              >
-                <FileText size={18} />
-                <span>View &amp; Download Resume</span>
-              </Link>
-            </div>
-
-            {/* Mobile Social Connections */}
-            <div className="pt-6 border-t border-border mt-6">
-              <span className="block text-xs font-mono tracking-widest text-primary/70 mb-4">
-                // CONNECT
-              </span>
-              <div className="grid grid-cols-4 gap-3">
-                {[
-                  {
-                    href: "https://github.com/amandubey923",
-                    icon: Github,
-                    label: "GitHub",
-                  },
-                  {
-                    href: "https://www.linkedin.com/in/aman-kr-dubey",
-                    icon: Linkedin,
-                    label: "LinkedIn",
-                  },
-                  {
-                    href: "https://www.instagram.com/",
-                    icon: Instagram,
-                    label: "Instagram",
-                  },
-                  {
-                    href: "mailto:kumaraman19137@gmail.com",
-                    icon: Mail,
-                    label: "Email",
-                  },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <Link
-                      key={i}
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      className="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl border border-primary/20 bg-card/60 text-muted-foreground hover:text-primary hover:border-primary/50 transition"
-                    >
-                      <Icon size={20} />
-                      <span className="text-[10px] font-mono">{item.label}</span>
-                    </Link>
-                  );
-                })}
-              </div>
             </div>
           </div>
-        )}
-      </header>
+        </div>
+      )}
     </>
   );
 }

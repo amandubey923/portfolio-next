@@ -8,9 +8,10 @@ export default function ContactPage() {
   return (
     <section className="relative z-10 max-w-7xl mx-auto py-16 md:py-24 px-4 sm:px-6">
       {/* Background Glows */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute -top-40 -left-40 w-125 h-125 bg-primary/10 blur-[140px] rounded-full animate-slow-spin" />
-        <div className="absolute -bottom-40 -right-40 w-125 h-125 bg-primary/10 blur-[140px] rounded-full animate-slow-spin" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="sm:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 blur-[100px] rounded-full" />
+        <div className="hidden sm:block absolute -top-40 -left-40 w-125 h-125 bg-primary/10 blur-[140px] rounded-full animate-slow-spin" />
+        <div className="hidden sm:block absolute -bottom-40 -right-40 w-125 h-125 bg-primary/10 blur-[140px] rounded-full animate-slow-spin" />
       </div>
 
       {/* SECTION HEADING */}

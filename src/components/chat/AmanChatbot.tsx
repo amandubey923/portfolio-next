@@ -228,7 +228,7 @@ export default function AmanChatbot() {
         <div
           role="dialog"
           aria-label="Aman AI Assistant Chat"
-          className="fixed bottom-20 right-3 sm:right-6 z-50 w-[94vw] sm:w-[420px] max-h-[600px] h-[78vh] flex flex-col rounded-3xl bg-card/95 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_50px_rgba(0,0,0,0.7)] animate-fadeIn overflow-hidden"
+          className="fixed bottom-20 right-3 sm:right-6 z-50 w-[calc(100vw-24px)] sm:w-[420px] max-w-[420px] max-h-[600px] h-[78vh] flex flex-col rounded-3xl bg-card/95 backdrop-blur-2xl border border-primary/35 shadow-[0_12px_50px_rgba(0,0,0,0.7)] animate-fadeIn overflow-hidden"
         >
           {/* HEADER */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-primary/15 bg-background/40 shrink-0">

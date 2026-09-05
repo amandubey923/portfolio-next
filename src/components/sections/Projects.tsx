@@ -24,7 +24,7 @@ interface ProjectItem {
 const projects: ProjectItem[] = [
   {
     id: "readers-hub",
-    image: "/projects/project3.png",
+    image: "/projects/readers-hub-v2.webp",
     title: "Reader's HUB — Explore & Read Books",
     category: "Digital Library Ecosystem",
     filterType: "fullstack",
@@ -35,7 +35,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "dentiva-ai",
-    image: "/projects/project7.png",
+    image: "/projects/dentiva-ai.webp",
     title: "Dentiva AI Dental-Health",
     category: "AI & Healthcare Assistant",
     filterType: "ai",
@@ -46,7 +46,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "transaction-validator",
-    image: "/projects/project10.png",
+    image: "/projects/transaction-validator.webp",
     title: "Transaction-Validator",
     category: "Fintech & Data Integrity",
     filterType: "fullstack",
@@ -57,7 +57,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "ai-fitness",
-    image: "/projects/project1.png",
+    image: "/projects/ai-fitness.webp",
     title: "AI Fitness Platform",
     category: "AI Health & Optimization",
     filterType: "ai",
@@ -68,7 +68,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "ai-image-generator",
-    image: "/projects/project9.png",
+    image: "/projects/ai-image-generator.webp",
     title: "AI Image Generator Studio",
     category: "Generative AI & SaaS",
     filterType: "ai",
@@ -79,7 +79,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "productify",
-    image: "/projects/project8.png",
+    image: "/projects/productify.webp",
     title: "Productify SaaS Platform",
     category: "E-Commerce & Storefront",
     filterType: "fullstack",
@@ -90,7 +90,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "video-calling-interview",
-    image: "/projects/project2.png",
+    image: "/projects/video-calling-interview.webp",
     title: "Video Calling Interview Platform",
     category: "Real-Time Systems & WebRTC",
     filterType: "fullstack",
@@ -101,7 +101,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "book-suggestion-app",
-    image: "/projects/project5.png",
+    image: "/projects/book-suggestion-app.webp",
     title: "Book Suggestion & Review App",
     category: "Full-Stack Community Hub",
     filterType: "fullstack",
@@ -111,7 +111,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "text-workspace",
-    image: "/projects/project4.png",
+    image: "/projects/text-workspace.webp",
     title: "Text Utility Workspace",
     category: "Developer Tool",
     filterType: "tools",
@@ -122,7 +122,7 @@ const projects: ProjectItem[] = [
   },
   {
     id: "future-project",
-    image: "/projects/project6.png",
+    image: "/projects/future-project.webp",
     title: "Next-Gen AI Workspace",
     category: "Upcoming Innovation",
     filterType: "ai",
@@ -191,8 +191,8 @@ export default function Projects() {
         })}
       </div>
 
-      {/* ================= 3-COLUMN COMPACT PROJECT GRID ================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* ================= 2-COLUMN MOBILE / 3-COLUMN DESKTOP PROJECT GRID ================= */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {visibleProjects.map((project, index) => (
           <CyberCard
             key={project.id}
@@ -200,27 +200,27 @@ export default function Projects() {
           >
             {/* Top Image Frame with Browser Header */}
             <div>
-              <div className="relative h-44 sm:h-48 w-full overflow-hidden border-b border-primary/20 bg-cyber-dark">
+              <div className="relative h-28 xs:h-36 sm:h-48 w-full overflow-hidden border-b border-primary/20 bg-cyber-dark">
                 {/* Browser Mockup Top Bar */}
-                <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-3 py-1.5 bg-card/85 backdrop-blur-md border-b border-primary/10">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-red-500/80" />
-                    <span className="h-2 w-2 rounded-full bg-yellow-500/80" />
-                    <span className="h-2 w-2 rounded-full bg-green-500/80" />
+                <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-2 sm:px-3 py-1 sm:py-1.5 bg-card/85 backdrop-blur-md border-b border-primary/10">
+                  <div className="flex items-center gap-1 sm:gap-1.5">
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-red-500/80" />
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-yellow-500/80" />
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-green-500/80" />
                   </div>
-                  <span className="text-[10px] font-mono text-muted-foreground/80 tracking-wider truncate max-w-[170px]">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-muted-foreground/80 tracking-wider truncate max-w-[85px] xs:max-w-[120px] sm:max-w-[170px]">
                     {project.category}
                   </span>
-                  <Code2 size={11} className="text-primary/60" />
+                  <Code2 size={11} className="text-primary/60 hidden xs:block" />
                 </div>
 
                 {/* Project Image */}
-                <div className="relative w-full h-full pt-6">
+                <div className="relative w-full h-full pt-5 sm:pt-6">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent opacity-80" />
@@ -228,35 +228,40 @@ export default function Projects() {
               </div>
 
               {/* Content Details */}
-              <div className="p-4 sm:p-5 space-y-2.5">
+              <div className="p-2.5 xs:p-3 sm:p-5 space-y-1.5 sm:space-y-2.5">
                 <div>
-                  <span className="text-[10px] font-mono text-primary tracking-widest uppercase block">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-primary tracking-widest uppercase block">
                     // 0{index + 1} • {project.category}
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground mt-0.5 group-hover:text-primary transition-colors line-clamp-1">
+                  <h3 className="text-xs xs:text-sm sm:text-lg font-bold tracking-tight text-foreground mt-0.5 group-hover:text-primary transition-colors line-clamp-1">
                     {project.title}
                   </h3>
                 </div>
 
-                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                <p className="text-[10px] sm:text-xs text-muted-foreground leading-relaxed line-clamp-2">
                   {project.desc}
                 </p>
 
                 {/* Tech Badges */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.tags.slice(0, 4).map((tag, i) => (
-                    <TechBadge key={i} name={tag} variant="subtle" />
+                <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-0.5 sm:pt-1">
+                  {project.tags.slice(0, 3).map((tag, i) => (
+                    <TechBadge
+                      key={i}
+                      name={tag}
+                      variant="subtle"
+                      className="text-[9px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1"
+                    />
                   ))}
                 </div>
               </div>
             </div>
 
             {/* Action Buttons Footer */}
-            <div className="p-4 sm:p-5 pt-0 mt-auto border-t border-primary/10 flex items-center justify-between gap-2.5">
+            <div className="p-2.5 xs:p-3 sm:p-5 pt-0 mt-auto border-t border-primary/10 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-1.5 sm:gap-2.5">
               {project.isUpcoming ? (
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-primary/80 italic py-1">
+                <div className="flex items-center gap-1 text-[9px] sm:text-[11px] font-mono text-primary/80 italic py-0.5 sm:py-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                  <span>In Development • Coming Soon</span>
+                  <span className="truncate">In Dev • Soon</span>
                 </div>
               ) : (
                 <>
@@ -265,10 +270,10 @@ export default function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-xl bg-primary/20 border border-primary/40 px-3.5 py-1.5 text-xs font-bold text-primary shadow-[0_0_12px_var(--cyber-glow-primary)] transition hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95"
+                      className="inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded-lg sm:rounded-xl bg-primary/20 border border-primary/40 px-2 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold text-primary shadow-[0_0_12px_var(--cyber-glow-primary)] transition hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95"
                     >
-                      <span>Live Project</span>
-                      <ExternalLink size={12} />
+                      <span>Live</span>
+                      <ExternalLink size={11} />
                     </Link>
                   ) : (
                     <div />
@@ -279,10 +284,10 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-card/60 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary hover:text-foreground hover:scale-105 active:scale-95"
+                      className="inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded-lg sm:rounded-xl border border-border bg-card/60 px-2 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold text-muted-foreground transition hover:border-primary hover:text-foreground hover:scale-105 active:scale-95"
                     >
-                      <Github size={13} />
-                      <span>Source</span>
+                      <Github size={11} />
+                      <span>Code</span>
                     </Link>
                   )}
                 </>

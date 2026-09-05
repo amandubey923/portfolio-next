@@ -155,7 +155,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     >
       <div
         id="portfolio-root"
-        className="portfolio-root min-h-screen w-full transition-colors duration-300 relative"
+        className="portfolio-root min-h-screen w-full transition-colors duration-300 relative overflow-x-clip"
         style={rootStyle}
       >
         {children}
