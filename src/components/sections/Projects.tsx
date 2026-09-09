@@ -63,7 +63,7 @@ const projects: ProjectItem[] = [
     filterType: "ai",
     desc: "Intelligent workout and nutrition assistant that analyzes user biometrics and fitness targets to formulate personalized dietary & fitness routines.",
     tags: ["React", "AI Engine", "Tailwind CSS", "Health Metrics"],
-    live: "https://ai-fitness-aman.netlify.app",
+    live: "https://fit-pilot-ai.vercel.app",
     github: "https://github.com/amandubey923/ai-fitness",
   },
   {
