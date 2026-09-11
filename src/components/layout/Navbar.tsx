@@ -208,7 +208,7 @@ export default function Navbar() {
             <ThemeButton />
 
             <Link
-              href="/resume/Resume2.pdf"
+              href="/resume/Aman_Dubey_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs xl:text-sm font-semibold shadow-[0_0_20px_var(--cyber-glow-primary)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_var(--cyber-glow-strong)] active:scale-95"
@@ -270,7 +270,7 @@ export default function Navbar() {
             })}
 
             <Link
-              href="/resume/Resume2.pdf"
+              href="/resume/Aman_Dubey_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}

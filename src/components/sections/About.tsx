@@ -42,7 +42,7 @@ export default function About() {
 
             <div className="pt-2">
               <Link
-                href="/resume/Resume2.pdf"
+                href="/resume/Aman_Dubey_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-primary/20 border border-primary/40 px-5 py-2.5 text-xs font-semibold text-primary shadow-[0_0_15px_var(--cyber-glow-primary)] transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105"

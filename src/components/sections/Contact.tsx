@@ -146,7 +146,7 @@ export default function Contact() {
 
             <div className="pt-2 border-t border-primary/10">
               <Link
-                href="/resume/Resume2.pdf"
+                href="/resume/Aman_Dubey_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary/15 border border-primary/30 px-4 py-2.5 text-xs font-bold text-primary shadow-[0_0_15px_var(--cyber-glow-primary)] transition hover:bg-primary hover:text-primary-foreground hover:scale-105"

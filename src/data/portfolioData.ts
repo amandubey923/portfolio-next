@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   github: "https://github.com/amandubey923",
   linkedin: "https://www.linkedin.com/in/aman-kr-dubey",
   portfolio: "https://aman-portfolio-next.netlify.app",
-  resumeUrl: "/resume/Resume2.pdf",
+  resumeUrl: "/resume/Aman_Dubey_Resume.pdf",
   avatar: "/hero/casual.png",
 };
 

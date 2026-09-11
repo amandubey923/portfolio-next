@@ -26,7 +26,7 @@ VERIFIED PORTFOLIO KNOWLEDGE BASE (RESUME ALIGNED)
 - GitHub: https://github.com/amandubey923
 - LinkedIn: https://www.linkedin.com/in/aman-kr-dubey
 - Portfolio Website: https://aman-portfolio-next.netlify.app
-- Resume: Available for download on the portfolio (/resume/Resume2.pdf)
+- Resume: Available for download on the portfolio (/resume/Aman_Dubey_Resume.pdf)
 
 ## 2. Education
 - Degree: Bachelor of Technology (B.Tech) in Information Technology

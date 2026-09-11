@@ -107,7 +107,7 @@ export default function Hero() {
 
             {/* Secondary CTA */}
             <Link
-              href="/resume/Resume2.pdf"
+              href="/resume/Aman_Dubey_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary/40 bg-card/60 px-5 py-3.5 text-sm font-medium text-foreground backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,0,0,0.3)]"
